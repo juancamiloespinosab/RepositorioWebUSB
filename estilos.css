@@ -12,6 +12,10 @@
     --Naranja: #FF8000;
 }
 
+.log {
+    user-select: none;
+}
+
 .open{
     font-family: 'Open Sans', sans-serif;
 }
@@ -102,7 +106,7 @@
 
 .row1{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 70%;
     background: rgba(255, 128, 0, 0.7);
 
     padding: 5%;

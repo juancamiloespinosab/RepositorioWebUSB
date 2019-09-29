@@ -28,7 +28,8 @@ function addFormProfesor(){
     formEstudiante.parentNode.removeChild(formEstudiante);
 
     formProfesor.classList.add('formBodyOpen');
-    formHead.style.borderRadius = "20px 20px 0 0"
+    formHead.style.borderRadius = "20px 20px 0 0";
+    textoArray = [];
 
     createFormEstudiante();
 }
@@ -39,6 +40,7 @@ function addFormEstudiante(){
 
     formEstudiante.classList.add('formBody2Open');
     formHead.style.borderRadius = "20px 20px 0 0";
+    textoArray = [];
 
     createFormProfesor();
 }

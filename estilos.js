@@ -1,5 +1,6 @@
 document.addEventListener('focusin', txtFocusIn);
 document.addEventListener('focusout', txtFocusOut);
+document.addEventListener('load', txtFocusOut);
 
 function txtFocusIn(e){
 
