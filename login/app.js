@@ -3,6 +3,8 @@ let opProfesor = document.getElementById('opProfesor');
     formHead = document.getElementById('formHead');
     logImagen = document.getElementById('logImagen');
     logTitulo = document.getElementById('logTitulo');
+	logImg = document.getElementById('logImg');
+	main = document.getElementById('main'); 
 
 var formProfesor, formEstudiante;
 
@@ -13,12 +15,16 @@ function op(e){
     if (e.target == opProfesor){
         opProfesor.classList.add('opSelected');
         opEstudiante.classList.remove('opSelected');
+		logImg.classList.add('imgOn');
+		main.classList.add('mainOn');
         addFormProfesor();
     }
 
     if (e.target == opEstudiante){
         opProfesor.classList.remove('opSelected');
         opEstudiante.classList.add('opSelected');
+		logImg.classList.add('imgOn');
+		main.classList.add('mainOn');
         addFormEstudiante();
     }
 }
@@ -29,6 +35,7 @@ function addFormProfesor(){
 
     formProfesor.classList.add('formBodyOpen');
     formHead.style.borderRadius = "20px 20px 0 0";
+    formHead.style.boxShadow = "0 0 5px var(--bgVerde)" ;
     textoArray = [];
 
     createFormEstudiante();
