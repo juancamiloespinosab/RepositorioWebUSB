@@ -58,8 +58,16 @@
     align-items: center;
 }
 
+.col1 {
+    grid-column: 1/2;
+}
+
 .col2 {
     grid-column: 1/3;
+}
+
+.col2-3{
+    grid-column: 2/3;
 }
 
 .fondo {
@@ -85,6 +93,7 @@
 .main {
     color: var(--txtBlanco);
     width: 25%;
+    transform: scale(.85);
 }
 
 .logup {
@@ -93,8 +102,8 @@
 
 .row1{
     display: grid;
-    grid-template-columns: 30% 70%;
-    background: var(--Naranja);
+    grid-template-columns: 40% 60%;
+    background: rgba(255, 128, 0, 0.7);
 
     padding: 5%;
     border-radius: 20px 20px 0 0;
@@ -103,10 +112,8 @@
 .row1sub {
     background: black;
     border-radius: 0 0 20px 20px;
-    padding: 5px;
-    margin-bottom: 5%;
-
-    
+    padding: 5%;
+    margin-bottom: 5%;    
 }
 
 .row{
@@ -116,17 +123,17 @@
 
 .op {
     cursor: pointer;
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
 
     transition: .2s all;
 }
 
 .opSelected {
-    border-bottom: 2px solid white;
+    border-bottom: 3px solid white;
 }
 
 .op:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 3px solid white;
 }
 
 .formHead {
@@ -135,24 +142,52 @@
     padding: 5%;
 }
 
-.formBody {
+.formBody2 {
+    top: 0;
+    position: absolute;
     grid-gap: 0;
     height: 0;
     padding: 0 0;
     border-radius: 0 0 20px 20px;
     opacity: 0;
-
+    transform: scaleY(0) translateY(-1);
     background: var(--txtBlanco);
+    z-index: -100;
+
+    transition: .2s all;
+}
+
+.formBody2Open {
+    position: relative;
+    grid-gap: 50%;
+    height: 200px;
+    padding: 10% 10%;
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+}
+
+.formBody {
+    top: 0;
+    position: absolute;
+    grid-gap: 0;
+    height: 0;
+    padding: 0% 10;
+    border-radius: 0 0 20px 20px;
+    opacity: 0;
+    transform: scaleY(0) translateY(-1);
+    background: var(--txtBlanco);
+    z-index: -100;
 
     transition: .2s all;
 }
 
 .formBodyOpen {
+    position: relative;
     grid-gap: 20%;
     height: 250px;
     padding: 10% 10%;
-    border-radius: 0 0 20px 20px;
     opacity: 1;
+    transform: scaleY(1) translateY(0);
 }
 
 .borderOff {
@@ -165,6 +200,13 @@
 
 .borderOn {
     width: 100%;
+}
+
+.labelCorreo {
+    color: var(--txtVerde);
+    position: relative;
+    font-size: 100%;
+    cursor: text;
 }
 
 .labelOff {
@@ -214,4 +256,5 @@
     border-radius: 0;
     background: var(--Naranja);
     box-shadow: 0 0 5px var(--Naranja);
+    width: 55%;
 }
