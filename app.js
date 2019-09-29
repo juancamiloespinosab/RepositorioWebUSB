@@ -6,8 +6,6 @@ let opProfesor = document.getElementById('opProfesor');
 
 var formProfesor, formEstudiante;
 
-var test = "";
-
 document.addEventListener('click', op);
 document.addEventListener('keypress', validarKey);
 
@@ -83,7 +81,6 @@ function borrarEmail(e){
             e.preventDefault();
         
             if(textoArray.length >= 1){
-    
     
                 textoArray.pop();
         
