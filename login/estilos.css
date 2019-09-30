@@ -12,8 +12,16 @@
     --Naranja: #FF8000;
 }
 
+body {
+    background-image: url(img/fondo.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .log {
-    
+    user-select: none;
 }
 
 .open{
@@ -74,14 +82,6 @@
     grid-column: 2/3;
 }
 
-.fondo {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    background: url(img/fondo.jpg) 0px -200px/100vw 150vh;
-    z-index: -10;
-}
-
 .fondoFilter {
     height: 100vh;
     width: 100vw;
@@ -91,18 +91,19 @@
 }
 
 .container {
+    width: 100vw;
     height: 100vh;
 }
 
 .main {
     color: var(--txtBlanco);
-    width: 25%;
+    width: 350px;
     transform: scale(1);
 	transition: .2s all;
 }
 
 .mainOn {
-    width: 22%;
+    width: 280px;
 }
 
 .logup {
@@ -274,4 +275,33 @@
     background: var(--Naranja);
     box-shadow: 0 0 5px var(--Naranja);
     width: 65%;
+}
+
+@media (max-width: 768px){
+    .imgOn{
+        height: 50px;
+    }
+    
+    .main {
+        color: var(--txtBlanco);
+        width: 300px;
+        transform: scale(1);
+        transition: .2s all;
+    }
+}
+
+@media (max-width: 820px) and (orientation: landscape){
+    .row1Active{
+        position: absolute;
+        left: 0;
+        visibility: hidden;
+    }
+    
+    .row1subActive {
+        top: 0;
+        border-radius: 20px;
+        padding: 0;
+        margin: 0;
+    }
+    
 }

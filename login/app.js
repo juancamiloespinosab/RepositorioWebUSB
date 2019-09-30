@@ -4,54 +4,56 @@ let opProfesor = document.getElementById('opProfesor');
     logImagen = document.getElementById('logImagen');
     logTitulo = document.getElementById('logTitulo');
 	logImg = document.getElementById('logImg');
-	main = document.getElementById('main'); 
+    main = document.getElementById('main');
+    row1 = document.getElementById('row1');
+    row1sub = document.getElementById('row1sub');
 
-var formProfesor, formEstudiante;
+var formProfesor, formEstudiante, logProfesor, enviarEstudiante, logEstudiante;
 
 document.addEventListener('click', op);
 document.addEventListener('keypress', validarKey);
 
 function op(e){
+    var obj = null;
+    
     if (e.target == opProfesor){
+        obj = e.target;
+        addFormProfesor();
         opProfesor.classList.add('opSelected');
         opEstudiante.classList.remove('opSelected');
-		logImg.classList.add('imgOn');
-		main.classList.add('mainOn');
-        addFormProfesor();
-    }
+    } 
 
     if (e.target == opEstudiante){
+        obj = e.target;
+        addFormEstudiante();
         opProfesor.classList.remove('opSelected');
         opEstudiante.classList.add('opSelected');
+    }
+
+    if (obj != null){
 		logImg.classList.add('imgOn');
 		main.classList.add('mainOn');
-        addFormEstudiante();
+        row1.classList.add('row1Active');
+        row1sub.classList.add('row1subActive');
+        formHead.style.borderRadius = "20px 20px 0 0";
+        formHead.style.boxShadow = "0 0 5px var(--bgVerde)" ;
+        textoArray = [];
     }
 }
 
 function addFormProfesor(){
 
     formEstudiante.parentNode.removeChild(formEstudiante);
-
     formProfesor.classList.add('formBodyOpen');
-    formHead.style.borderRadius = "20px 20px 0 0";
-    formHead.style.boxShadow = "0 0 5px var(--bgVerde)" ;
-    textoArray = [];
-
     createFormEstudiante();
 }
 
 function addFormEstudiante(){
 
     formProfesor.parentNode.removeChild(formProfesor);
-
     formEstudiante.classList.add('formBody2Open');
-    formHead.style.borderRadius = "20px 20px 0 0";
-    textoArray = [];
-
     createFormProfesor();
 }
-
 
 var textoArray = [];
 var textoFinal = "";
