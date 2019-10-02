@@ -1,0 +1,53 @@
+[33mcommit 6ffcc09a18bcc44633bc796c0c144508159a81f8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Tue Oct 1 20:30:51 2019 -0500
+
+    Se añade formulario para validar codigo de acceso de estudiantes
+
+[33mcommit 1510d46286f6bfd688a3c68abc4869c4b44c6ed9[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Mon Sep 30 00:21:06 2019 -0500
+
+    Se ajusta diseño responsive para  login y fondo
+
+[33mcommit ba27acc95788e63e1233e2df7da06e5bb29d9b8b[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Sun Sep 29 17:20:57 2019 -0500
+
+    Estructura general inicial
+
+[33mcommit 8f0fe4f8dca6e0bcb1927760540a267b06dc8fee[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Sun Sep 29 14:35:47 2019 -0500
+
+    Inicio: Estructura general de la aplicación
+
+[33mcommit 80fa4af0cdb84d5f1135cf08739264d5fe5b7ca2[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Sun Sep 29 01:38:05 2019 -0500
+
+    se deshabilita la seleccion de textos
+
+[33mcommit 25fd3e35a99407aad05dbd2d72920f95be90d8ac[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Sun Sep 29 01:21:02 2019 -0500
+
+    version estable login profesor 90% login estudiante 50%
+
+[33mcommit 99e8ec8642d7732c1bc45e856db70da451a33820[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Sun Sep 29 01:13:40 2019 -0500
+
+    se termina login para profesor, se avanza con login para estudiantes
+
+[33mcommit a02dc29d22fe93a086d1646472fe91f42c6c27a8[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Sat Sep 28 21:11:18 2019 -0500
+
+    Se crea front para login de profesores
+
+[33mcommit 87cc174d8c49668c7f851fa77ba8b1be1c0240df[m
+Author: Juan Espinosa <juancamiloespinosab@gmail.com>
+Date:   Sun Sep 15 15:45:16 2019 -0500
+
+    Initial commit
