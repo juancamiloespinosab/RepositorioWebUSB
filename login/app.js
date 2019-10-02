@@ -1,3 +1,5 @@
+var hola;
+
 let opProfesor = document.getElementById('opProfesor');
     opEstudiante = document.getElementById('opEstudiante');
     btnIngresarProfesor = document.getElementById('btnIngresarProfesor');
