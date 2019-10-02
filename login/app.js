@@ -1,5 +1,7 @@
 let opProfesor = document.getElementById('opProfesor');
     opEstudiante = document.getElementById('opEstudiante');
+    btnIngresarProfesor = document.getElementById('btnIngresarProfesor');
+    btnValidarCodigo = document.getElementById('btnValidarCodigo')
     formHead = document.getElementById('formHead');
     logImagen = document.getElementById('logImagen');
     logTitulo = document.getElementById('logTitulo');
@@ -8,7 +10,7 @@ let opProfesor = document.getElementById('opProfesor');
     row1 = document.getElementById('row1');
     row1sub = document.getElementById('row1sub');
 
-var formProfesor, formEstudiante, logProfesor, enviarEstudiante, logEstudiante;
+var formProfesor, formEstudiante, formEstudianteValidar, logProfesor, enviarEstudiante, logEstudiante, btnEnviarCorreo;
 
 document.addEventListener('click', op);
 document.addEventListener('keypress', validarKey);
@@ -30,6 +32,11 @@ function op(e){
         opEstudiante.classList.add('opSelected');
     }
 
+    if (e.target == btnEnviarCorreo){
+        obj = e.target;
+        addFormEstudianteValidar();
+    }
+
     if (obj != null){
 		logImg.classList.add('imgOn');
 		main.classList.add('mainOn');
@@ -43,16 +50,28 @@ function op(e){
 
 function addFormProfesor(){
 
+    formEstudianteValidar.parentNode.removeChild(formEstudianteValidar);
     formEstudiante.parentNode.removeChild(formEstudiante);
     formProfesor.classList.add('formBodyOpen');
     createFormEstudiante();
+    createFormEstudianteValidar();
 }
 
 function addFormEstudiante(){
 
+    formEstudianteValidar.parentNode.removeChild(formEstudianteValidar);
     formProfesor.parentNode.removeChild(formProfesor);
     formEstudiante.classList.add('formBody2Open');
     createFormProfesor();
+    createFormEstudianteValidar();
+}
+
+function addFormEstudianteValidar(){
+    
+    formEstudiante.parentNode.removeChild(formEstudiante);
+    formEstudianteValidar.classList.add('formBody2Open');
+    createFormProfesor();
+    createFormEstudiante();
 }
 
 var textoArray = [];

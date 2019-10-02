@@ -34,6 +34,7 @@ body {
 
 .supertit{
     font-size: 110%;
+    text-shadow: 0 0 2px black;
 }
 
 .titulo {
@@ -146,10 +147,12 @@ body {
 
 .opSelected {
     border-bottom: 3px solid white;
+    text-shadow: 0 0 2px black;
 }
 
 .op:hover {
     border-bottom: 3px solid white;
+    text-shadow: 0 0 2px black;
 }
 
 .formHead {
@@ -274,6 +277,7 @@ body {
     border-radius: 0;
     background: var(--Naranja);
     box-shadow: 0 0 5px var(--Naranja);
+    text-shadow: 0 0 2px black;
     width: 65%;
 }
 

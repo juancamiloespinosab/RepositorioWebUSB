@@ -17,7 +17,7 @@ function createFormProfesor(){
     </div>
     
     <div class="parentCenter col2">
-    <input class="btn titulo open b700" type="button" value="Ingresar">
+    <input id="btnIngresarProfesor" class="btn titulo open b700" type="button" value="Ingresar">
     </div>
     `
     
@@ -26,6 +26,7 @@ function createFormProfesor(){
     formProfesor.classList.add('row');
     formProfesor.classList.add('formBody');
     formProfesor.classList.add('open');
+
 }
 
 function createFormEstudiante(){
@@ -39,7 +40,7 @@ function createFormEstudiante(){
     </div>
 
     <div class="parentCenter col2">
-        <input class="btn titulo open b700" type="button" value="Enviar Código">
+        <input id="btnEnviarCorreo" class="btn titulo open b700" type="button" value="Enviar Código">
     </div>
     `
 
@@ -52,7 +53,34 @@ function createFormEstudiante(){
     var txtEmail = document.getElementById('txtEmail');
     txtEmail.addEventListener('keypress', autoEmail);
     txtEmail.addEventListener('keydown', borrarEmail);
+
+    btnEnviarCorreo = document.getElementById('btnEnviarCorreo');
+}
+
+function createFormEstudianteValidar(){
+    formEstudianteValidar = document.createElement('div');
+    formEstudianteValidar.innerHTML = `
+    
+    <div class="col2">
+        <label for="txtCodigo" class="labelOff">Código</label>
+        <input id="txtCodigo" class="txt titulo" type="text"/>
+        <div class="border borderOff"></div>
+        </div>
+    
+        <div class="parentCenter col2">
+            <input class="btn titulo open b700" type="button" value="Validar Código">
+        </div>
+
+    </div>
+    `
+
+    main.appendChild(formEstudianteValidar);
+    formEstudianteValidar.classList.add('log');
+    formEstudianteValidar.classList.add('row');
+    formEstudianteValidar.classList.add('formBody2');
+    formEstudianteValidar.classList.add('open');
 }
 
 createFormProfesor();
 createFormEstudiante();
+createFormEstudianteValidar();
