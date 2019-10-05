@@ -1,12 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/profesores.css">
+    <link rel="stylesheet" href="css/fontello.css">
     <title>Document</title>
 </head>
 <body>
-    
+   <div class="perfil">
+    <div class="fondo">
+     <a class="icon-cerrar" href=""></a>
+     </div>
+      <div class="contenido">
+       <img src="img/user.png" alt="">
+       <h2 class="nombre">Nombre profesor</h2>
+       <center>
+       <a class="correo" href="">correo@usbbog.edu.co</a>
+       <p class="desc">Descripción del profesor, estudios y universitarios, titulos academicos</p>
+       </center>
+       <div class="botones">
+       <li id="btn" class="btnmaterias" onclick="mostrar();"><a id="ocultarmateria1" class="materias" >Materia 1</a></li>
+       <li class="btnmaterias" onclick=";"><a id="mostrarmateria2" class="materias" >Materia 2</a></li>
+       <li class="btnmaterias" ><a class="materias" href="">Materia 3</a></li>
+       <li class="btnmaterias" ><a class="materias" href="">Materia 4</a></li>
+       </div>
+    </div>
+   </div>
+   
+    <div id="materia" class="materia">
+       <a class="icon-volver" onclick="ocultar();"></a>
+       <div class="publicvista">
+       <h2 class="nombrevista">Nombre publicación</h2><br>
+       <div class="botonesa">
+       <a href="" class="icon-eliminar"></a>
+       <a href="" class="icon-eye"></a>
+       <a href="" class="icon-editar"></a>
+       </div>
+       </div>
+        <a class="crear" onclick="mostrar2();" id="generar">+</a>
+    </div>
+    <div id="crear">
+       <a class="icon-volver" id="volver" onclick="ocultar2();"></a>
+        <h1 class="titulocrear"><p class="inicial">P</p>ublicación</h1>
+        <center>
+        <input class="titulo" type="text" name="Titulo" placeholder="Ingrese el titulo">
+        <br>
+        <textarea class="descripcionpublicacion" name="textarea" placeholder="Descripción ..."></textarea>
+        </center>
+        <center>
+        <table class="espacio-documento-subido">
+            <tr>
+               <th class="titulo-tabla">Id</th>
+                <th class="titulo-tabla">Nombre</th>
+                <th class="titulo-tabla">Tipo</th>
+                <th class="titulo-tabla">Eliminar | Editar</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nombre</td>
+                <td>.pdf</td>
+                <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+                
+            </tr>
+        </table>
+        </center>
+        <center>
+        <li class="imagenessubida"><a id="archivos1" class="icon-pdf"></a></li>
+        <li class="imagenessubida"><a id="archivos2" class="icon-doc"></a></li>
+        <li class="imagenessubida"><a id="archivos3" class="icon-img"></a></li>
+        <li class="imagenessubida"><a id="archivos4" class="icon-audio"></a></li>
+        <li class="imagenessubida"><a id="archivos5" class="icon-video"></a></li>
+        </center> 
+        <center>
+        <a class="publicar" href="">Publicar</a>
+        </center>
+    </div>
+    <script src="js/profesores.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 </body>
 </html>
