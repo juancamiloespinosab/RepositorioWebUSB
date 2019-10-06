@@ -11,6 +11,7 @@
     --txtVerde: #668077;
     --Naranja: #FF8000;
     --rojo: #FF3F0D;
+    --azul: #0088B3;
 }
 
 body {
@@ -118,11 +119,16 @@ body {
     background: white;
     z-index: 200;
     padding: 10px;
-    box-shadow: 0 0 3px var(--rojo);
+    transform: scale(1);
+    transition: 3s transform;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modalOn {
+    transform: scale(2);
 }
 
 .imgModal{
@@ -313,17 +319,16 @@ body {
 }
 
 .btn:hover{
-    text-shadow: 0 0 2px black;
-    box-shadow: 0 0 5px var(--bgVerde);
-    background: #009969;
-}
-
-.btn:focus {
     border-radius: 0;
     background: var(--Naranja);
     box-shadow: 0 0 5px var(--Naranja);
     text-shadow: 0 0 2px black;
     width: 65%;
+}
+
+.btn:focus {
+    text-shadow: 0 0 2px black;
+    box-shadow: 0 0 5px var(--bgVerde);
 }
 
 @media (max-width: 768px){

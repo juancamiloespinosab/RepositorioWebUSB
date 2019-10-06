@@ -2,7 +2,9 @@ var main = document.getElementById('main');
 
 class Modal {
     constructor(){
+        this.estado = "normal";
         this.modalContainer = document.getElementById('modalContainer');
+        this.modal = document.getElementById('modal');
         this.imgModal = document.getElementById('imgModal');
         this.txtModal = document.getElementById('txtModal');
 
@@ -12,19 +14,30 @@ class Modal {
     }
     mostrar(tipo){
         this.modalContainer.classList.add('modalContainerOn');
-        this.txtModal.innerHTML = this.tipoMsj(tipo);
+        this.imgModal.src = this.tipoMsj(tipo)[0];
+        this.txtModal.innerHTML = this.tipoMsj(tipo)[1];
+        this.modal.style.boxShadow = `0 0 5px var(--${this.tipoMsj(tipo)[2]})`;
+
+        if (tipo == 3){
+            this.modal.classList.add('modalOn');
+            this.estado = "logeando";
+        }
+
+        setTimeout(this.ocultar,6000);
     }
     ocultar(){
-        this.modalContainer.classList.remove('modalContainerOn');
+        if (this.estado == "normal"){
+            this.modalContainer.classList.remove('modalContainerOn');
+        }
     }
     tipoMsj(tipo){
         switch(tipo){
             case 1:
-                return 'Los campos no pueden estar vacios!';
+                return ['img/alerta.png','Los campos no pueden estar vacios.','Naranja'];
             case 2:
-                return 'Usuario incorrecto!';
+                return ['img/error.png','Usuario o contraseña incorrectos.','rojo'];
             case 3:
-                return 'Contraseña incorrecta!';
+                return ['img/smile.png','Bienvenido.','bgVerde'];
             default:
                 return '';
         }
