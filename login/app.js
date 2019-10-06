@@ -112,7 +112,7 @@ var textoArray = [];
 var textoFinal = "";
 
 function autoEmail(e){
-  
+    
     e.preventDefault();
 
     if(IsValidKey(e.keyCode)){
