@@ -81,14 +81,38 @@ function addFormEstudianteValidar(){
 function validarLoginProfesor(){
     if(txtUser.value == "" || txtPass.value == ""){
         modal.mostrar(1);
+    } else {
+        var data = {usuario: txtUser.value, clave: txtPass.value};
+
+        fetch('php/logProfesor.php',{
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers:{'Content-Type': 'application/json'}
+        })
+        .then(function(res){
+            return res.json();
+        })
+        .then(function(miRes){
+            if(miRes == "true"){
+                modal.mostrar(3);
+                setTimeout(irPerfil,3000);
+            }else{
+                modal.mostrar(2);
+            }
+        })
+        ;
     }
+}
+
+function irPerfil(){
+    location.href = "../profesor";
 }
 
 var textoArray = [];
 var textoFinal = "";
 
 function autoEmail(e){
-    
+  
     e.preventDefault();
 
     if(IsValidKey(e.keyCode)){
