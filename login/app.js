@@ -112,8 +112,6 @@ var textoArray = [];
 var textoFinal = "";
 
 function autoEmail(e){
-
-    alert('bb');
     
     e.preventDefault();
 
