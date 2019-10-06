@@ -1,5 +1,36 @@
 var main = document.getElementById('main');
 
+class Modal {
+    constructor(){
+        this.modalContainer = document.getElementById('modalContainer');
+        this.imgModal = document.getElementById('imgModal');
+        this.txtModal = document.getElementById('txtModal');
+
+        this.modalContainer.addEventListener('click', () => this.ocultar());
+        this.imgModal.addEventListener('click', () => this.ocultar());
+        this.txtModal.addEventListener('click', () => this.ocultar());
+    }
+    mostrar(tipo){
+        this.modalContainer.classList.add('modalContainerOn');
+        this.txtModal.innerHTML = this.tipoMsj(tipo);
+    }
+    ocultar(){
+        this.modalContainer.classList.remove('modalContainerOn');
+    }
+    tipoMsj(tipo){
+        switch(tipo){
+            case 1:
+                return 'Los campos no pueden estar vacios!';
+            case 2:
+                return 'Usuario incorrecto!';
+            case 3:
+                return 'Contraseña incorrecta!';
+            default:
+                return '';
+        }
+    }
+}
+
 function createFormProfesor(){
     formProfesor = document.createElement('div')
     formProfesor.innerHTML = `
@@ -27,6 +58,10 @@ function createFormProfesor(){
     formProfesor.classList.add('formBody');
     formProfesor.classList.add('open');
 
+    btnIngresarProfesor = document.getElementById('btnIngresarProfesor');
+    txtUser = document.getElementById('txtUser');
+    txtPass = document.getElementById('txtPass');
+
 }
 
 function createFormEstudiante(){
@@ -53,6 +88,8 @@ function createFormEstudiante(){
     var txtEmail = document.getElementById('txtEmail');
     txtEmail.addEventListener('keypress', autoEmail);
     txtEmail.addEventListener('keydown', borrarEmail);
+    txtEmail.addEventListener('paste', noPaste);
+    txtEmail.addEventListener('cut', noPaste);
 
     btnEnviarCorreo = document.getElementById('btnEnviarCorreo');
 }
@@ -84,3 +121,4 @@ function createFormEstudianteValidar(){
 createFormProfesor();
 createFormEstudiante();
 createFormEstudianteValidar();
+var modal = new Modal();

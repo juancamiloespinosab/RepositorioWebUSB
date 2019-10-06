@@ -1,5 +1,3 @@
-var hola;
-
 let opProfesor = document.getElementById('opProfesor');
     opEstudiante = document.getElementById('opEstudiante');
     btnIngresarProfesor = document.getElementById('btnIngresarProfesor');
@@ -12,7 +10,7 @@ let opProfesor = document.getElementById('opProfesor');
     row1 = document.getElementById('row1');
     row1sub = document.getElementById('row1sub');
 
-var formProfesor, formEstudiante, formEstudianteValidar, logProfesor, enviarEstudiante, logEstudiante, btnEnviarCorreo;
+var formProfesor, formEstudiante, formEstudianteValidar, logProfesor, enviarEstudiante, logEstudiante, btnEnviarCorreo, btnIngresarProfesor, txtUser, txtPass;
 
 document.addEventListener('click', op);
 document.addEventListener('keypress', validarKey);
@@ -37,6 +35,11 @@ function op(e){
     if (e.target == btnEnviarCorreo){
         obj = e.target;
         addFormEstudianteValidar();
+    }
+
+    if (e.target == btnIngresarProfesor){
+        obj = e.target;
+        validarLoginProfesor();
     }
 
     if (obj != null){
@@ -72,8 +75,13 @@ function addFormEstudianteValidar(){
     
     formEstudiante.parentNode.removeChild(formEstudiante);
     formEstudianteValidar.classList.add('formBody2Open');
-    createFormProfesor();
     createFormEstudiante();
+}
+
+function validarLoginProfesor(){
+    if(txtUser.value == "" || txtPass.value == ""){
+        modal.mostrar(1);
+    }
 }
 
 var textoArray = [];
@@ -141,6 +149,10 @@ function validarKey(e){
     if(!IsValidKey(e.keyCode)){
         e.preventDefault();
     }
+}
+
+function noPaste(e){
+    e.preventDefault();
 }
 
 /* VALIDA TECLAS: 0-9, a-z, ñ, Ñ, A-Z*/
