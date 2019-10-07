@@ -1,7 +1,5 @@
 let opProfesor = document.getElementById('opProfesor');
     opEstudiante = document.getElementById('opEstudiante');
-    btnIngresarProfesor = document.getElementById('btnIngresarProfesor');
-    btnValidarCodigo = document.getElementById('btnValidarCodigo')
     formHead = document.getElementById('formHead');
     logImagen = document.getElementById('logImagen');
     logTitulo = document.getElementById('logTitulo');
@@ -9,8 +7,13 @@ let opProfesor = document.getElementById('opProfesor');
     main = document.getElementById('main');
     row1 = document.getElementById('row1');
     row1sub = document.getElementById('row1sub');
+    txtCuenta = document.getElementById('txtCuenta');
 
-var formProfesor, formEstudiante, formEstudianteValidar, logProfesor, enviarEstudiante, logEstudiante, btnEnviarCorreo, btnIngresarProfesor, txtUser, txtPass;
+var formProfesor, formEstudiante, formEstudianteValidar, logProfesor, enviarEstudiante, logEstudiante, btnEnviarCorreo, btnIngresarProfesor, btnValidarCodigo, txtUser, txtPass, txtEmail, txtCodigo;
+
+var timerCuenta, accesKey, cuenta = 180;
+
+var divContador = document.getElementById('contador');
 
 document.addEventListener('click', op);
 document.addEventListener('keypress', validarKey);
@@ -34,12 +37,22 @@ function op(e){
 
     if (e.target == btnEnviarCorreo){
         obj = e.target;
-        addFormEstudianteValidar();
+        enviarCorreo();
     }
 
     if (e.target == btnIngresarProfesor){
         obj = e.target;
         validarLoginProfesor();
+    }
+
+    if (e.target == btnIngresarProfesor){
+        obj = e.target;
+        validarLoginProfesor();
+    }
+
+    if (e.target == btnValidarCodigo){
+        obj = e.target;
+        ValidarCodigo();
     }
 
     if (obj != null){
@@ -95,12 +108,94 @@ function validarLoginProfesor(){
         .then(function(miRes){
             if(miRes == "true"){
                 modal.mostrar(3);
-                setTimeout(irPerfil,3000);
+                setTimeout(irPerfil,10000);
             }else{
                 modal.mostrar(2);
             }
-        })
-        ;
+        });
+    }
+}
+
+function enviarCorreo(){
+
+    if(txtEmail.value == ""){
+        modal.mostrar(1);
+    } else {
+        if(txtEmail.value.includes("@academia.usbbog.edu.co")){
+            var data = {correo: txtEmail.value};
+
+            modal.mostrar(4);
+    
+            fetch('php/enviarCodigo.php',{
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers:{'Content-Type': 'application/json'}
+            })
+            .then(function(res){
+                return res.json();
+            })
+            .then(function(miRes){
+                if(miRes.envio){
+                    accesKey = miRes.accesKey;
+                    console.log(">" + accesKey);
+                    setTimeout(resetAccesKey,180000);
+                    timerCuenta = setInterval(cuentaRegresiva, 1000);
+                    divContador.style.visibility = "visible";
+                    modal.ocultar(1);
+                    modal.mostrar(5);
+                    addFormEstudianteValidar();
+                } else {
+                    modal.mostrar(6);
+                }
+            });
+        } else {
+            modal.mostrar(7);
+        }
+        
+    }
+
+}
+
+function ValidarCodigo(){
+    if(txtCodigo.value == accesKey){
+        console.log("bien");
+    } else {
+        console.log("mal");
+    }
+}
+
+function resetAccesKey(){
+    accesKey = '';
+    console.log('reset..');
+    addFormEstudiante();
+    opProfesor.classList.remove('opSelected');
+    opEstudiante.classList.add('opSelected');
+}
+
+function cuentaRegresiva(){
+    cuenta--;
+
+    var showCuenta;
+    var unidad;
+
+    if(cuenta >= 120){
+        showCuenta = Math.floor(cuenta/60);
+        unidad = "minutos";
+    } else {
+        if(cuenta >=60 && cuenta <= 120){
+            showCuenta = Math.floor(cuenta/60);
+            unidad = "minuto";
+        } else {
+            showCuenta = cuenta;
+            unidad = "segundos";
+        }
+    }
+
+    txtCuenta.innerHTML = showCuenta + " " + unidad;
+
+    if(cuenta == 0){
+        clearInterval(timerCuenta);
+        divContador.style.visibility = "hidden";
     }
 }
 
@@ -123,7 +218,7 @@ function autoEmail(e){
             textoFinal = textoFinal + textoArray[i];
         }
     
-        e.target.value = textoFinal + "@usbbog.edu.co";
+        e.target.value = textoFinal + "@academia.usbbog.edu.co";
     
         setCaretPosition('txtEmail', textoArray.length);
     

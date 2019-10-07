@@ -13,31 +13,48 @@ class Modal {
         this.txtModal.addEventListener('click', () => this.ocultar());
     }
     mostrar(tipo){
+        var sys = 0;
+        this.imgModal.src = '';
+        this.estado = "normal";
+
         this.modalContainer.classList.add('modalContainerOn');
         this.imgModal.src = this.tipoMsj(tipo)[0];
         this.txtModal.innerHTML = this.tipoMsj(tipo)[1];
         this.modal.style.boxShadow = `0 0 5px var(--${this.tipoMsj(tipo)[2]})`;
+
+        if(tipo == 4){
+            this.estado = "enviando";
+            sys = 1;
+        }
 
         if (tipo == 3){
             this.modal.classList.add('modalOn');
             this.estado = "logeando";
         }
 
-        setTimeout(this.ocultar,6000);
+        setTimeout(this.ocultar,this.tipoMsj(tipo)[3],sys);
     }
-    ocultar(){
-        if (this.estado == "normal"){
+    ocultar(sys){
+        if (this.estado == "normal" || sys == 1){
             this.modalContainer.classList.remove('modalContainerOn');
         }
     }
     tipoMsj(tipo){
         switch(tipo){
             case 1:
-                return ['img/alerta.png','Los campos no pueden estar vacios.','Naranja'];
+                return ['img/alerta.png','Los campos no pueden estar vacios.','Naranja',6000];
             case 2:
-                return ['img/error.png','Usuario o contraseña incorrectos.','rojo'];
+                return ['img/error.png','Usuario o contraseña incorrectos.','rojo',6000];
             case 3:
-                return ['img/smile.png','Bienvenido.','bgVerde'];
+                return ['img/smile.png','Bienvenido.','bgVerde',3000];
+            case 4:
+                return ['img/email.png','Enviando...','bgVerde',10000];
+            case 5:
+                return ['img/correo.png','Te hemos enviado el código de acceso al correo, por favor verifica tu bandeja de entrada.','bgVerde',10000];
+            case 6:
+                return ['img/error.png','No ha sido posible enviar el correo.','bgVerde',6000];
+            case 7:
+                return ['img/error.png','Por favor ingresa tu correo institucional.','bgVerde',6000];
             default:
                 return '';
         }
@@ -83,7 +100,7 @@ function createFormEstudiante(){
     
     <div class="col2">
     <label for="txtEmail" class="labelOff">Correo</label>
-    <input id="txtEmail" class="txt titulo" type="text"/>
+    <input id="txtEmail" class="txt titulo" type="text" value=""/>
     <div class="border borderOff"></div>
     </div>
 
@@ -98,7 +115,7 @@ function createFormEstudiante(){
     formEstudiante.classList.add('formBody2');
     formEstudiante.classList.add('open');
 
-    var txtEmail = document.getElementById('txtEmail');
+    txtEmail = document.getElementById('txtEmail');
     txtEmail.addEventListener('keypress', autoEmail);
     txtEmail.addEventListener('keydown', borrarEmail);
     txtEmail.addEventListener('paste', noPaste);
@@ -115,12 +132,11 @@ function createFormEstudianteValidar(){
         <label for="txtCodigo" class="labelOff">Código</label>
         <input id="txtCodigo" class="txt titulo" type="text"/>
         <div class="border borderOff"></div>
-        </div>
+    </div>
     
         <div class="parentCenter col2">
-            <input class="btn titulo open b700" type="button" value="Validar Código">
+            <input id="btnValidarCodigo" class="btn titulo open b700" type="button" value="Validar Código">
         </div>
-
     </div>
     `
 
@@ -129,6 +145,9 @@ function createFormEstudianteValidar(){
     formEstudianteValidar.classList.add('row');
     formEstudianteValidar.classList.add('formBody2');
     formEstudianteValidar.classList.add('open');
+
+    btnValidarCodigo = document.getElementById('btnValidarCodigo');
+    txtCodigo = document.getElementById('txtCodigo');
 }
 
 createFormProfesor();

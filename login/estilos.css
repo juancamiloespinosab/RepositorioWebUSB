@@ -114,7 +114,6 @@ body {
 
 .modal {
     position: absolute;
-    height: 50px;
     border-radius: 20px;
     background: white;
     z-index: 200;
@@ -223,6 +222,7 @@ body {
     background: var(--txtBlanco);
     z-index: -100;
     box-shadow: 0 0 5px var(--bgVerde);
+    visibility: hidden;
 
     transition: .2s all;
 }
@@ -231,6 +231,7 @@ body {
     position: relative;
     padding: 10% 10%;
     opacity: 1;
+    visibility: visible;
 }
 
 .formBody {
@@ -244,6 +245,7 @@ body {
     background: var(--txtBlanco);
     z-index: -100;
     box-shadow: 0 0 5px var(--bgVerde);
+    visibility: hidden;
 
     transition: .2s all;
 }
@@ -254,6 +256,7 @@ body {
     height: 250px;
     padding: 0 10% 10% 10%;
     opacity: 1;
+    visibility: visible;
 }
 
 .borderOff {
@@ -330,6 +333,31 @@ body {
     text-shadow: 0 0 2px black;
     box-shadow: 0 0 5px var(--bgVerde);
 }
+
+.contador {
+    margin: 20px;
+    position: fixed;
+    padding: 10px;
+    right: 0;
+    top: 0;
+    grid-gap: 10px;
+    background: rgba(255, 255, 255, .9);
+    box-shadow: 0 0 5px var(--azul);
+    visibility: hidden;
+
+    z-index: 300;
+}
+
+.contador > input {
+    width: 100%;
+    background: var(--rojo);
+    color: white;
+}
+
+.contador > input:hover {
+    width: 100%;
+}
+
 
 @media (max-width: 768px){
     .imgOn{
