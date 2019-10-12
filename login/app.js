@@ -10,10 +10,11 @@ let opProfesor = document.getElementById('opProfesor');
     txtCuenta = document.getElementById('txtCuenta');
 
 var formProfesor, formEstudiante, formEstudianteValidar, logProfesor, enviarEstudiante, logEstudiante, btnEnviarCorreo, btnIngresarProfesor, btnValidarCodigo, txtUser, txtPass, txtEmail, txtCodigo;
-
-var timerCuenta, accesKey, cuenta = 180;
+const cuentaGeneral = 60;
+var timerCuenta, accesKey, cuenta;
 
 var divContador = document.getElementById('contador');
+    btnCancelarCuenta = document.getElementById('btnCancelarCuenta');
 
 document.addEventListener('click', op);
 document.addEventListener('keypress', validarKey);
@@ -53,6 +54,11 @@ function op(e){
     if (e.target == btnValidarCodigo){
         obj = e.target;
         ValidarCodigo();
+    }
+
+    if(e.target == btnCancelarCuenta){
+        obj = e.target;
+        cancelarCuenta();
     }
 
     if (obj != null){
@@ -108,7 +114,7 @@ function validarLoginProfesor(){
         .then(function(miRes){
             if(miRes == "true"){
                 modal.mostrar(3);
-                setTimeout(irPerfil,10000);
+                setTimeout(irPerfil,3000);
             }else{
                 modal.mostrar(2);
             }
@@ -132,23 +138,23 @@ function enviarCorreo(){
                 headers:{'Content-Type': 'application/json'}
             })
             .then(function(res){
-                console.log(res);
                 return res.json();
             })
             .then(function(miRes){
                 console.log(miRes);
-                /* if(miRes.envio == "1"){
+                if(miRes.envio){
                     accesKey = miRes.accesKey;
                     console.log(">" + accesKey);
-                    setTimeout(resetAccesKey,180000);
                     timerCuenta = setInterval(cuentaRegresiva, 1000);
+                    cuenta = cuentaGeneral;
                     divContador.style.visibility = "visible";
+                    formHead.classList.add('formHeadOff');
                     modal.ocultar(1);
                     modal.mostrar(5);
                     addFormEstudianteValidar();
                 } else {
                     modal.mostrar(6);
-                } */
+                }
             });
         } else {
             modal.mostrar(7);
@@ -196,9 +202,17 @@ function cuentaRegresiva(){
     txtCuenta.innerHTML = showCuenta + " " + unidad;
 
     if(cuenta == 0){
-        clearInterval(timerCuenta);
-        divContador.style.visibility = "hidden";
+        cancelarCuenta();
+        modal.mostrar(8);
     }
+}
+
+function cancelarCuenta(){
+    divContador.style.visibility = "hidden";
+    clearInterval(timerCuenta);
+    resetAccesKey();
+    cuenta = cuentaGeneral;
+    formHead.classList.remove('formHeadOff');
 }
 
 function irPerfil(){

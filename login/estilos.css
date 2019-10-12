@@ -210,6 +210,14 @@ body {
     background: var(--bgVerde);
     border-radius: 20px;
     padding: 5%;
+    visibility: visible;
+}
+
+.formHeadOff {
+    content: '';
+    padding: 0;
+    height: 0;
+    visibility: hidden;
 }
 
 .formBody2 {
@@ -343,7 +351,7 @@ body {
     top: 0;
     grid-gap: 10px;
     background: rgba(255, 255, 255, .9);
-    box-shadow: 0 0 5px var(--azul);
+    box-shadow: 0 0 5px var(--rojo);
     visibility: hidden;
 
     z-index: 300;
@@ -394,7 +402,6 @@ body {
 
     .txtModal {
         white-space: normal;
-    
     }
     
 }

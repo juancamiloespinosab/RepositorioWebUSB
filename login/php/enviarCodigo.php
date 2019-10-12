@@ -9,7 +9,7 @@ require_once('PHPMailer/config.php');
 $mail->AddAddress($correo->correo);
 
 $mail->IsHTML(true);
-$mail->Subject = 'Código de acceso: Repositorio Web Institucional';
+$mail->Subject = 'Código de acceso';
 
 
 $msg = "
@@ -22,6 +22,11 @@ $msg = "
     color: white;
     text-align: center;
     background: #0088B3;
+  }
+
+  .img {
+    height: 100px;
+    width: 50px;
   }
 
   .titulos1 {
@@ -47,10 +52,11 @@ $msg = "
 </style>
 
 <div class='cont'>
-  <h1 class='titulos1'>Universidad de San Buenaventura - Bogotá</h1>
-  <h1 class='titulos2'>Repositorio Web Institucional</h1>
+  <!--<img class='img' src='https://www.usbbog.edu.co/wp-content/uploads/2018/07/universidad_blason.png'>-->
+  <h1 class='titulos1'>Universidad de San Buenaventura</h1>
+  <h1 class='titulos2'>Bogotá D.C.</h1>
   <br>
-  <p>Su Código de acceso al repositorio es el siguiente:<p><br><h2>".$rnd."</h2><br>
+  <p>Su código de acceso al repositorio es el siguiente:<p><br><h2>".$rnd."</h2><br>
 </div>";
 
 $mail->Body = $msg;
@@ -58,7 +64,7 @@ $send = $mail->Send();
 
 $json = array(
     "envio"  => $send,
-    "accesKey" => "2",
+    "accesKey" => $rnd,
 );
 
 echo json_encode($json);
