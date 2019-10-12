@@ -3,6 +3,7 @@ var main = document.getElementById('main');
 class Modal {
     constructor(){
         this.userCanClose = true;
+        this.timer;
         this.modalContainer = document.getElementById('modalContainer');
         this.modal = document.getElementById('modal');
         this.imgModal = document.getElementById('imgModal');
@@ -25,7 +26,7 @@ class Modal {
             this.modal.classList.add('modalOn');
         }
 
-        setTimeout(() => this.ocultar(true),this.tipoMsj(tipo)[3]);
+        this.timer = setTimeout(() => this.ocultar(true),this.tipoMsj(tipo)[3]);
 
     }
     ocultar(sys){
@@ -33,6 +34,8 @@ class Modal {
         if (this.userCanClose || sys){
             this.modalContainer.classList.remove('modalContainerOn');
         }
+
+        clearInterval(this.timer);
     }
     tipoMsj(tipo){
         switch(tipo){
