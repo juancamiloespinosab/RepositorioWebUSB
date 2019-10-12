@@ -54,10 +54,10 @@ $msg = "
 </div>";
 
 $mail->Body = $msg;
-$mail->Send();
+$send = $mail->Send();
 
 $json = array(
-    "envio"  => "1",
+    "envio"  => $send,
     "accesKey" => "2",
 );
 
