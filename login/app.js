@@ -132,10 +132,12 @@ function enviarCorreo(){
                 headers:{'Content-Type': 'application/json'}
             })
             .then(function(res){
+                console.log(res);
                 return res.json();
             })
             .then(function(miRes){
-                if(miRes.envio){
+                console.log(miRes);
+                /* if(miRes.envio == "1"){
                     accesKey = miRes.accesKey;
                     console.log(">" + accesKey);
                     setTimeout(resetAccesKey,180000);
@@ -146,7 +148,7 @@ function enviarCorreo(){
                     addFormEstudianteValidar();
                 } else {
                     modal.mostrar(6);
-                }
+                } */
             });
         } else {
             modal.mostrar(7);

@@ -151,6 +151,7 @@ body {
     color: var(--txtBlanco);
     width: 350px;
     transform: scale(1);
+    transition: .5s all;
 }
 
 .mainOn {
@@ -224,7 +225,7 @@ body {
     box-shadow: 0 0 5px var(--bgVerde);
     visibility: hidden;
 
-    transition: .2s all;
+    transition: .5s all;
 }
 
 .formBody2Open {
@@ -247,7 +248,7 @@ body {
     box-shadow: 0 0 5px var(--bgVerde);
     visibility: hidden;
 
-    transition: .2s all;
+    transition: .5s all;
 }
 
 .formBodyOpen {
