@@ -51,7 +51,7 @@ class Modal {
             case 7:
                 return ['img/error.png','Por favor ingresa tu correo institucional.','bgVerde',6000,true]; //si  
             case 8:
-                return ['img/triste.png','Se agotó el tiempo, por favor intenta nuevamente.','Naranja',6000,false]; //si  
+                return ['img/triste.png','Se agotó el tiempo, por favor intenta nuevamente.','Naranja',60000,true]; //si  
             default:
                 return '';
         }
