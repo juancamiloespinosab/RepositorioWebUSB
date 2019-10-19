@@ -6,12 +6,29 @@ $user = $data->usuario;
 $pass = $data->clave;
 
 function loginCorrecto($user, $pass){
-    /*
-        REALIZAR CONEXION CON LA BASE DE DATOS,
-        VALIDAR SI EL USUARIO Y CONTRASEÑA SON CORRECTOS,
-        SI SON VALIDOS DEBE RETORNAR true,
-        DE LO CONTRATIO RETORNA false
-    */
+
+    $server = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'repositoriousbbog';
+
+
+  $conn = new mysqli($server, $username, $password, $database);
+
+    $SQL = "select * FROM TB_USB_PROFESORES WHERE NOMBRE='$user' AND CONTRASENA = '$pass'";
+
+
+    $RES = mysqli_query($conn, $SQL);
+
+
+    $filas=mysqli_num_rows($RES);
+    if($filas>0){
+        return true;
+    }
+    else{
+        return false;
+    }
+
 }
 
 if(loginCorrecto($user, $pass)){
