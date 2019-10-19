@@ -35,7 +35,7 @@ body {
 }
 
 .supertit{
-    font-size: 110%;
+    font-size: 100%;
     text-shadow: 0 0 2px black;
 }
 
@@ -151,6 +151,7 @@ body {
     color: var(--txtBlanco);
     width: 350px;
     transform: scale(1);
+    transition: .2s all;
 }
 
 .mainOn {
@@ -163,8 +164,8 @@ body {
 }
 
 .imgOff {
-	height: 150px;
-	transition: .2s all;
+	height: 100px;
+	transition: .5s all;
 }
 
 .imgOn{
@@ -209,6 +210,14 @@ body {
     background: var(--bgVerde);
     border-radius: 20px;
     padding: 5%;
+    visibility: visible;
+}
+
+.formHeadOff {
+    content: '';
+    padding: 0;
+    height: 0;
+    visibility: hidden;
 }
 
 .formBody2 {
@@ -218,13 +227,13 @@ body {
     height: 200px;
     padding: 5% 5%;
     border-radius: 0 0 20px 20px;
-    opacity: 0;
+    opacity: .5;
     background: var(--txtBlanco);
     z-index: -100;
     box-shadow: 0 0 5px var(--bgVerde);
     visibility: hidden;
 
-    transition: .2s all;
+    transition: .5s all;
 }
 
 .formBody2Open {
@@ -241,13 +250,13 @@ body {
     height: 250px;
     padding: 0 0;
     border-radius: 0 0 20px 20px;
-    opacity: 0;
+    opacity: .5;
     background: var(--txtBlanco);
     z-index: -100;
     box-shadow: 0 0 5px var(--bgVerde);
     visibility: hidden;
 
-    transition: .2s all;
+    transition: .5s all;
 }
 
 .formBodyOpen {
@@ -342,7 +351,7 @@ body {
     top: 0;
     grid-gap: 10px;
     background: rgba(255, 255, 255, .9);
-    box-shadow: 0 0 5px var(--azul);
+    box-shadow: 0 0 5px var(--rojo);
     visibility: hidden;
 
     z-index: 300;
@@ -393,7 +402,6 @@ body {
 
     .txtModal {
         white-space: normal;
-    
     }
     
 }
