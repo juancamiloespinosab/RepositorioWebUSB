@@ -12,6 +12,8 @@ function loginCorrecto($user, $pass){
         SI SON VALIDOS DEBE RETORNAR true,
         DE LO CONTRATIO RETORNA false
     */
+
+    return true;
 }
 
 if(loginCorrecto($user, $pass)){

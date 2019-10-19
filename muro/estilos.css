@@ -151,22 +151,29 @@
     height: 30px;
     width: 30px;
     cursor: pointer;
+    filter: brightness(1);
 
     transition: .3s all;
 }
 
 .lupa:hover {
-    opacity: .5;
+    filter: brightness(1.5);
 }
 
 .main {
-    width: 100%;
+    width: calc(100% + 5px);
     height: 100%;
     grid-row: 2/3;
-    overflow: hidden;
+    overflow-y: scroll;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-gap: 50px;
+
+    justify-content: center;
 
     background: hsl(0, 0%, 96%);
-    transition: 2s all;
 }
 
 .main:hover {
@@ -182,7 +189,23 @@
     border-radius: 50px;
 }
 
-.cont {
-    width: 20px;
-    height: 2000px;
+.filtros, .publicacion{
+    width: 100%;
+    height: 100%;
+    background: gray;
+}
+
+.filtros {
+    overflow-y: scroll;
+    position: fixed;
+}
+
+.timeline {
+    width: 100%;
+    height: 100%;
+}
+
+.publicacion {
+    width: 100%;
+    height: 1000px;
 }
