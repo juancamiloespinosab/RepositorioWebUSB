@@ -19,14 +19,14 @@
        <p class="desc">Descripción del profesor, estudios y universitarios, titulos academicos</p>
        </center>
        <div class="botones">
-       <li id="btn" class="btnmaterias" onclick="mostrar();"><a id="ocultarmateria1" class="materias" >Materia 1</a></li>
+       <li id="btn" class="btnmaterias" onclick="mostrar(document.getElementById('materia'));"><a id="ocultarmateria1" class="materias" >Materia 1</a></li>
        <li class="btnmaterias" onclick=";"><a id="mostrarmateria2" class="materias" >Materia 2</a></li>
        <li class="btnmaterias" ><a class="materias" href="">Materia 3</a></li>
        <li class="btnmaterias" ><a class="materias" href="">Materia 4</a></li>
        </div>
     </div>
    </div>
-   
+   <!--publicaciones hechas-->
     <div id="materia" class="materia">
        <a class="icon-volver" onclick="ocultar();"></a>
        <div class="publicvista">
@@ -37,8 +37,9 @@
        <a href="" class="icon-editar"></a>
        </div>
        </div>
-        <a class="crear" onclick="mostrar2();" id="generar">+</a>
+        <a class="crear" onclick="mostrar(document.getElementById('crear'));" id="generar">+</a>
     </div>
+    <!--crear publicacion-->
     <div id="crear">
        <a class="icon-volver" id="volver" onclick="ocultar2();"></a>
         <h1 class="titulocrear"><p class="inicial">P</p>ublicación</h1>
@@ -48,6 +49,7 @@
         <textarea class="descripcionpublicacion" name="textarea" placeholder="Descripción ..."></textarea>
         </center>
         <center>
+        <div class="archivos-subidos">
         <table class="espacio-documento-subido">
             <tr>
                <th class="titulo-tabla">Id</th>
@@ -63,16 +65,32 @@
                 
             </tr>
         </table>
+        </div>
         </center>
         <center>
-        <li class="imagenessubida"><a id="archivos1" class="icon-pdf"></a></li>
-        <li class="imagenessubida"><a id="archivos2" class="icon-doc"></a></li>
-        <li class="imagenessubida"><a id="archivos3" class="icon-img"></a></li>
-        <li class="imagenessubida"><a id="archivos4" class="icon-audio"></a></li>
-        <li class="imagenessubida"><a id="archivos5" class="icon-video"></a></li>
+        <form>
+        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos1" class="icon-pdf" ></i>
+        </label></li>
+        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos2" class="icon-doc" ></i>
+        </label></li>
+        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos3" class="icon-img" ></i>
+        </label></li>
+        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos4" class="icon-audio" ></i>
+        </label></li>
+        <li class="imagenessubida"><i onclick="animar(document.getElementById('youtube'));" id="archivos5" class="icon-video" ></i></li>
+        </form>
         </center> 
         <center>
         <a class="publicar" href="">Publicar</a>
+        </center>
+        <!--div de subida youtube-->
+        <center>
+        <div class="youtube" id="youtube">
+          <a class="icon-cerrar" href=""></a>
+           <h2>Ingrese el link del video <br>&#711</h2>
+            <input type="text" class="link"><br>
+            <a class="subir-youtube" href="">Subir</a>
+        </div>
         </center>
     </div>
     <script src="js/profesores.js"></script>
