@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Repositorio Web | Muro</title>
 </head>
-<body>
+<body id="root">
     
+    <div class="app">
+
+        <div class="nav">
+            <div class="nav-inner">
+                <div class="logo">
+                    <img class="logo-img" src="../login/img/logo.png">
+                    <div>
+                        <h1 class="log supertit crim b700"><span class="mayus">U</span>NIVERSIDAD <span class="mayus">D</span>E</h1>
+                        <h1 class="log supertit crim b700"><span class="mayus">S</span>AN <span class="mayus">B</span>UENAVENTURA</h1>
+                    </div>
+                </div>
+                <div class="buscar parentCenter">
+                    <div class="buscar-inner">
+                        <input class="buscar-box open b400" placeholder="Buscar..." type="text" id="txtBuscar">
+                        <div class="lupa-container parentCenter">
+                            <img src="img/lupa.png" class="lupa">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="cont"></div>
+        </div>
+
+    </div>
+
+    <script src="clases.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

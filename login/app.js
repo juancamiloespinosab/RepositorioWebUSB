@@ -263,7 +263,7 @@ function borrarEmail(e){
                     textoFinal = textoFinal + textoArray[i];
                 }
             
-                e.target.value = textoFinal + "@usbbog.edu.co";
+                e.target.value = textoFinal + "@academia.usbbog.edu.co";
     
                 setCaretPosition('txtEmail', textoArray.length);
             
