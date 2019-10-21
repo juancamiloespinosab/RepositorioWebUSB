@@ -28,7 +28,6 @@ function loginCorrecto($user, $pass){
     else{
         return false;
     }
-
 }
 
 if(loginCorrecto($user, $pass)){
