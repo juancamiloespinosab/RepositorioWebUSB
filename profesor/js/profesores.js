@@ -15,5 +15,10 @@ function darestilo(){
     btn.classList.toggle("toggle");
 }
 function animar(obj){
-    obj.classList.add("youtube-active");
+    obj.classList.remove("youtube-inactive");
+    obj.classList.add("youtube-active");    
+
+}
+function cancelarvideo(obj){
+    obj.classList.add("youtube-inactive");
 }

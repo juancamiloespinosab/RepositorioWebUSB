@@ -2,14 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/profesores.css">
     <link rel="stylesheet" href="css/fontello.css">
-    <title>Document</title>
+    <title>Perfil</title>
 </head>
 <body>
    <div class="perfil">
     <div class="fondo">
-     <a class="icon-cerrar" href=""></a>
+     <a class="icon-cerrar"></a>
      </div>
       <div class="contenido">
        <img src="img/user.png" alt="">
@@ -18,11 +19,15 @@
        <a class="correo" href="">correo@usbbog.edu.co</a>
        <p class="desc">Descripción del profesor, estudios y universitarios, titulos academicos</p>
        </center>
+       <div class="scroll-menu">
        <div class="botones">
+       <ul>
        <li id="btn" class="btnmaterias" onclick="mostrar(document.getElementById('materia'));"><a id="ocultarmateria1" class="materias" >Materia 1</a></li>
        <li class="btnmaterias" onclick=";"><a id="mostrarmateria2" class="materias" >Materia 2</a></li>
        <li class="btnmaterias" ><a class="materias" href="">Materia 3</a></li>
        <li class="btnmaterias" ><a class="materias" href="">Materia 4</a></li>
+       </ul>
+       </div>
        </div>
     </div>
    </div>
@@ -34,7 +39,7 @@
        <div class="botonesa">
        <a href="" class="icon-eliminar"></a>
        <a href="" class="icon-eye"></a>
-       <a href="" class="icon-editar"></a>
+       <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
        </div>
        </div>
         <a class="crear" onclick="mostrar(document.getElementById('crear'));" id="generar">+</a>
@@ -42,7 +47,7 @@
     <!--crear publicacion-->
     <div id="crear">
        <a class="icon-volver" id="volver" onclick="ocultar2();"></a>
-        <h1 class="titulocrear"><p class="inicial">P</p>ublicación</h1>
+        <h1 class="titulocrear">Publicación</h1>
         <center>
         <input class="titulo" type="text" name="Titulo" placeholder="Ingrese el titulo">
         <br>
@@ -58,6 +63,27 @@
                 <th class="titulo-tabla">Eliminar | Editar</th>
             </tr>
             <tr>
+                <td>1</td>
+                <td>Nombre</td>
+                <td>.pdf</td>
+                <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+                
+            </tr>
+             <tr>
+                <td>1</td>
+                <td>Nombre</td>
+                <td>.pdf</td>
+                <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+                
+            </tr>
+             <tr>
+                <td>1</td>
+                <td>Nombre</td>
+                <td>.pdf</td>
+                <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+                
+            </tr>
+             <tr>
                 <td>1</td>
                 <td>Nombre</td>
                 <td>.pdf</td>
@@ -86,7 +112,7 @@
         <!--div de subida youtube-->
         <center>
         <div class="youtube" id="youtube">
-          <a class="icon-cerrar" href=""></a>
+          <a class="icon-cerrar" id="cerrar-youtube" onclick="cancelarvideo(document.getElementById('youtube'));"></a>
            <h2>Ingrese el link del video <br>&#711</h2>
             <input type="text" class="link"><br>
             <a class="subir-youtube" href="">Subir</a>
@@ -94,9 +120,5 @@
         </center>
     </div>
     <script src="js/profesores.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
 </body>
 </html>

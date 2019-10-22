@@ -50,7 +50,7 @@ img{
 }
 .desc{
     color: white;
-   font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-top: 10%;
 }
 .botones{
@@ -60,6 +60,11 @@ img{
     text-align: center;
     font-size: 18px;
 }
+.scroll-menu{
+    overflow-y: scroll;
+    width: 1%;
+}
+
 .btnmaterias{
     width: 330%;
     position:static;
@@ -115,9 +120,10 @@ img{
     transform: translateX(-16%);
     width: 25%;
     height: 25%;
--webkit-box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.75);
--moz-box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.75);
-box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.75);
+    border: 1px solid #bcbcbc;
+-webkit-box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.25);
+-moz-box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.25);
+box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.25);
 }
 .nombrevista{
     text-align: center;
@@ -134,21 +140,20 @@ box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.75);
     text-decoration: none;
     font-size: 25px;
     transition: all 0.3s;
+    cursor: pointer;
 }
-.icon-eliminar{
-    color: red;
+.icon-eliminar:hover{
+    color: #de0000;
 }
-.icon-editar{
-    color:#8e006d
+.icon-eye:hover{
+    color: #FF6501
 }
-
-.icon-eliminar:hover,.icon-editar:hover,.icon-eye:hover{
-    color: #FF8000;
+.icon-editar:hover{
+    color: #64c900;
 }
 .icon-eliminar,.icon-eye{
     margin-right: 5%;
 }
-
 .crear{
     grid-column: 5/7;
     grid-row: 5/7;
@@ -218,7 +223,7 @@ box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
    font-family: 'Playfair Display SC', serif;
     margin-top: 2%;
     text-align: center;
-    font-size: 25px;
+    font-size: 35px;
 }
 .titulo{
     margin-top: 3%;
@@ -293,11 +298,12 @@ input[type="file"] {
     cursor: pointer;
 }
 .youtube{
+    border-radius: 20px;
     background: white;
     text-align: center;
     padding: 30px;
     padding-bottom:5%;
-    transform: translateY(50%);
+    transform: translateY(60%);
     width: 50%;
     z-index: 1000;
     -webkit-box-shadow: 0px 0px 39px 5px rgba(0,0,0,0.75);
@@ -307,6 +313,9 @@ box-shadow: 0px 0px 39px 5px rgba(0,0,0,0.75);
 }
 .youtube-active{
    transform: translateY(-60%); 
+}
+.youtube-inactive{
+    transform: translateY(60%);
 }
 .youtube > h2{
     font-family: 'Playfair Display SC', serif;
@@ -321,15 +330,25 @@ box-shadow: 0px 0px 39px 5px rgba(0,0,0,0.75);
     padding-top: 1%;
     width: 65%;
 }
+#cerrar-youtube{
+    position: absolute;
+    color: black;
+    margin-left: 41%;
+    margin-top: -3%;
+    cursor: pointer;
+}
 .subir-youtube{
+    font-family: 'Open Sans', sans-serif;
     width: 30%;
     background: rgb(147, 2, 2);
     color: white;
     text-decoration: none;
     padding: 10px;
+    transition: 0.5s all;
 }
 .subir-youtube:hover{
-    background: #f80000;
+    border-radius: 10px;
+    background: #ac0000;
 }
 .publicar{
     font-family: 'Open Sans', sans-serif;
