@@ -1,12 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <title>Repositorio Web | Muro</title>
 </head>
-<body>
+<body id="root">
     
+    <div class="app">
+
+        <div class="nav">
+            <div class="nav-inner">
+                <div class="logo">
+                    <img class="logo-img" src="../login/img/logo.png">
+                    <div>
+                        <h1 class="log supertit crim b700"><span class="mayus">U</span>NIVERSIDAD <span class="mayus">D</span>E</h1>
+                        <h1 class="log supertit crim b700"><span class="mayus">S</span>AN <span class="mayus">B</span>UENAVENTURA</h1>
+                    </div>
+                </div>
+                <div class="buscar parentCenter">
+                    <div class="buscar-inner">
+                        <input class="buscar-box open b400" placeholder="Buscar..." type="text" id="txtBuscar">
+                        <div class="lupa-container parentCenter">
+                            <img src="img/lupa.png" class="lupa">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="filtros">
+
+                <input class="btn-filtrar open" type="button" value="Aplicar Filtros">
+
+                <div class="filtro parentCenter">
+                    <div class="filtro-semestre parentCenter">
+                        <p class="filtro-titulo open b700 bgSemestre">Semestre</p>
+                        
+                        <!-- <label for="check" class="txt-item open"><input id="check" type="checkbox" id=""> 2019-2</label> -->
+
+                        <img src="img/flecha.png" alt="▲">
+                    </div>
+                    
+                </div>
+                <div class="filtro parentCenter">
+                    <div class="filtro-carrera parentCenter">
+                        <p class="filtro-titulo open b700 bgCarrera">Carrera</p>
+                        <img src="img/flecha.png" alt="▲">
+                    </div>
+
+                </div>
+                <div class="filtro parentCenter">
+                    <div class="filtro-profesor parentCenter">
+                        <p class="filtro-titulo open b700 bgProfesor">Profesor</p>
+                        <img src="img/flecha.png" alt="▲">
+                    </div>
+
+                </div>
+                <div class="filtro parentCenter">
+                    <div class="filtro-materia parentCenter">
+                        <p class="filtro-titulo open b700 bgMateria">Materia</p>
+                        <img src="img/flecha.png" alt="▲">
+                    </div>
+
+                </div>
+            </div>
+
+            
+            <div id="timeline" class="timeline">
+                
+                <!-- <div class="publicacion">
+                    <div class="publicacion-inner">
+                        <div class="publiHead">
+                            <img class="avatar" src="../profesor/img/user.png">
+                            <p class="txt-profesor open b400"> Juan Camilo Espinosa Briceño</p>
+                            <p class="txt-fecha open b400">19 Octubre 2019</p>
+                        </div>
+
+                        <div id="publiBody" class="publiBody">
+
+                            <div class="documentos parentCenter">
+                                <div id="doc-inner" class="documentos-inner">
+                                    <img id="flecha" class="flecha" src="img/flecha.png" alt=">">
+                                </div>
+                            </div>
+
+                            <div class="contenido-publicacion">
+
+                                <div class="titulo">
+                                    <p class="txt-titulo open b700">Aprendiendo Javascript en la u</p>
+                                </div>
+
+                                <div class="descripcion">
+                                    <p class="txt-descripcion open">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi rerum error minus, repellendus consectetur dolores quaerat ab delectus! Laboriosam assumenda tenetur repellendus ad consequuntur eaque totam a nesciunt quibusdam numquam?</p>
+                                    
+                                </div>
+
+                                <p class="txt-verMas open b600">Ver más</p>
+                                
+
+                            </div>
+                        </div>
+
+                        <div class="publiFoot">
+                            <p class="tag tag-materia open">Introduccion a la programación</p>
+                            <p class="tag tag-carrera open">Software</p>
+                            <p class="tag tag-semestre open">2019-2</p>
+                        </div>
+                    </div>
+                </div> -->
+
+
+              
+                
+            </div>
+        </div>
+
+    </div>
+
+    <script src="clases.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

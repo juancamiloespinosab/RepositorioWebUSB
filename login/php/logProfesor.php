@@ -13,7 +13,7 @@ function loginCorrecto($user, $pass){
     $database = 'repositoriousbbog';
 
 
-  $conn = new mysqli($server, $username, $password, $database);
+    $conn = new mysqli($server, $username, $password, $database);
 
     $SQL = "select * FROM TB_USB_PROFESORES WHERE NOMBRE='$user' AND CONTRASENA = '$pass'";
 
