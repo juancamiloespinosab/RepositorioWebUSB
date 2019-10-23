@@ -126,7 +126,7 @@ img{
     width: 100%;
     height: 657px;
     border: none
-}
+}/*-------------------------------------------------------DIV DE PUCBLICACIONES HECHAS--------------------------------------------------------*/
 #materia{
     visibility: hidden;
     background:white;
@@ -134,11 +134,42 @@ img{
     height: 100%;
     position: absolute;
     transform: translateX(33.9%);
+    overflow: hidden;
 }
-#materia{
+.publicaciones-hechas{
+    margin-top: -62%;
     display: grid;
     grid-template-columns:repeat(4, 1fr);
-    grid-template-rows: repeat(auto-fit, minmax(10px, 200px));  
+    grid-template-rows: repeat(auto-fit, minmax(10px, 200px));
+}
+.div-volver{
+    height: 100%;
+    width: 5%;
+    margin-top: 1.5%;
+}
+.crear-public{
+    margin:none;
+    color: black;
+    padding:none;
+    font-size:80px;
+    border-radius: 50%;
+    text-decoration: none;   
+    font-weight: bold;
+    transition: all 0.3s;
+}
+#boton-public{
+    cursor: pointer;
+    background: rgb(251, 255, 0);
+    text-align: center;
+    border: none;
+    webkit-box-shadow:none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+#boton-public:hover{   
+    -webkit-box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
+box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
 }
 .publicvista{
     padding: 10px;
@@ -178,28 +209,7 @@ box-shadow: 1px 2px 16px 3px rgba(0,0,0,0.25);
 .icon-eliminar,.icon-eye{
     margin-right: 5%;
 }
-.posicion-boton{
-    float: right;
-}
-.crear{
-    width: 55px;
-    height: 50px;
-    text-align: center;
-    padding-bottom: 6px;
-    background: yellow;
-    color: black;
-    font-size: 50px;
-    border-radius: 50%;
-    text-decoration: none;   
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.crear:hover{
-    -webkit-box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
-box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
-}
+
 .icon-volver{
     text-decoration: none;
     color: black;
@@ -227,6 +237,7 @@ box-shadow: 0px 1px 26px 6px rgba(0,0,0,0.75);
 #volver:hover{
     color: #FF6501; 
 }
+/*-----------------------------------------------DIV DE CREACION DE PUBLICACION---------------------------------------------------------------*/
 #crear{
     visibility: hidden;
     background: white;
