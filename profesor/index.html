@@ -8,6 +8,7 @@
     <title>Perfil</title>
 </head>
 <body>
+  
    <div class="perfil">
     <div class="fondo">
      <a class="icon-cerrar"></a>
@@ -21,22 +22,28 @@
        </center>
        <div class="scroll-menu">
        <div class="botones">
-<<<<<<< HEAD
-       <ul>
-=======
->>>>>>> 18fe03ede47c0a780e08093b58834ae02d1428e8
        <li id="btn" class="btnmaterias" onclick="mostrar(document.getElementById('materia'));"><a id="ocultarmateria1" class="materias" >Materia 1</a></li>
        <li class="btnmaterias" onclick=";"><a id="mostrarmateria2" class="materias" >Materia 2</a></li>
        <li class="btnmaterias" ><a class="materias" href="">Materia 3</a></li>
        <li class="btnmaterias" ><a class="materias" href="">Materia 4</a></li>
-       </ul>
+       <li class="btnmaterias" ><a class="materias" href="">Materia 5</a></li>
+       <li class="btnmaterias" ><a class="materias" href="">Materia 6</a></li>
+       <li class="btnmaterias" ><a class="materias" href="">Materia 7</a></li>
        </div>
        </div>
+       
     </div>
+   </div>
+   <div class="espacio-muro">
+   <center>
+   <iframe class="muro" src="https://localhost/RepositorioWebUSB/muro/index.html"></iframe>
+   </center>
    </div>
    <!--publicaciones hechas-->
     <div id="materia" class="materia">
+      <div class="div-volver">
        <a class="icon-volver" onclick="ocultar();"></a>
+       </div>
        <div class="publicvista">
        <h2 class="nombrevista">Nombre publicación</h2><br>
        <div class="botonesa">
@@ -45,7 +52,33 @@
        <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
        </div>
        </div>
+       <div class="publicvista">
+       <h2 class="nombrevista">Nombre publicación</h2><br>
+       <div class="botonesa">
+       <a href="" class="icon-eliminar"></a>
+       <a href="" class="icon-eye"></a>
+       <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
+       </div>
+       </div>
+       <div class="publicvista">
+       <h2 class="nombrevista">Nombre publicación</h2><br>
+       <div class="botonesa">
+       <a href="" class="icon-eliminar"></a>
+       <a href="" class="icon-eye"></a>
+       <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
+       </div>
+       </div>
+       <div class="publicvista">
+       <h2 class="nombrevista">Nombre publicación</h2><br>
+       <div class="botonesa">
+       <a href="" class="icon-eliminar"></a>
+       <a href="" class="icon-eye"></a>
+       <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
+       </div>
+       </div>
+       <div class="publicvista">
         <a class="crear" onclick="mostrar(document.getElementById('crear'));" id="generar">+</a>
+        </div>
     </div>
     <!--crear publicacion-->
     <div id="crear">
@@ -115,12 +148,8 @@
         <!--div de subida youtube-->
         <center>
         <div class="youtube" id="youtube">
-<<<<<<< HEAD
           <a class="icon-cerrar" id="cerrar-youtube" onclick="cancelarvideo(document.getElementById('youtube'));"></a>
-=======
-          <a class="icon-cerrar" href=""></a>
->>>>>>> 18fe03ede47c0a780e08093b58834ae02d1428e8
-           <h2>Ingrese el link del video <br>&#711</h2>
+           <h2>Ingrese el link del video <br><h1>&#711</h1></h2>
             <input type="text" class="link"><br>
             <a class="subir-youtube" href="">Subir</a>
         </div>
