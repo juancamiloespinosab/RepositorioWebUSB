@@ -54,7 +54,9 @@ class Modal {
             case 7:
                 return ['img/error.png','Por favor ingresa tu correo institucional.','bgVerde',6000,true]; //si  
             case 8:
-                return ['img/triste.png','Se agotó el tiempo, por favor intenta nuevamente.','Naranja',60000,true]; //si  
+                return ['img/triste.png','Se agotó el tiempo, por favor intenta nuevamente.','Naranja',60000,true]; //si
+            case 9:
+                return ['img/error.png','Código incorrecto.','rojo',10000,true]; //si
             default:
                 return '';
         }
@@ -73,7 +75,7 @@ function createFormProfesor(){
     
     <div class="col2">
         <label for="txtPass" class="labelOff">Contraseña</label>
-        <input id="txtPass" class="txt titulo" type="#password"/>
+        <input id="txtPass" class="txt titulo" type="password"/>
         <div class="border borderOff"></div>
     </div>
     
