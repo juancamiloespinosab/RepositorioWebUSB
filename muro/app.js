@@ -6,9 +6,40 @@ var publicacion2 = new Publicacion("profesor", "20 Octubre 2019", "../profesor/i
 
 var publicacion3 = new Publicacion("profesor", "20 Octubre 2019", "../profesor/img/user.png", "titulo", "descripcion", "tagMateria", "tagCarrera", "tagSemestre");
 
-timeline.appendChild(publicacion.getElement());
-timeline.appendChild(publicacion2.getElement());
-timeline.appendChild(publicacion3.getElement());
+var publicaciones = [];
+
+window.addEventListener("load",start);
+
+function start(){
+    var data = { usuario: "a", clave:"b" };
+
+        fetch('php/consultas.php', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(function (res) {
+                return res.json();
+            })
+            .then(function (miRes) {
+                console.log(miRes);
+                sqlStart(miRes[0], miRes);
+            });
+}
+
+function sqlStart(cantidad, json){
+
+    var obj;
+
+    for(var i = 1; i <= cantidad; i++){
+2
+        obj = new Publicacion(json[i][0], json[i][11], "../profesor/img/user.png", json[i][8], json[i][9], "tagMateria", "tagCarrera", "tagSemestre");
+        timeline.appendChild(obj.getElement());
+    }
+
+        
+
+}
 
 
 

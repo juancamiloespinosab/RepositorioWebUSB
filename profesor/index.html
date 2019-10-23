@@ -1,102 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/profesores.css">
     <link rel="stylesheet" href="css/fontello.css">
-    <title>Document</title>
+    <title>Perfil</title>
 </head>
+
 <body>
-   <div class="perfil">
-    <div class="fondo">
-     <a class="icon-cerrar" href=""></a>
-     </div>
-      <div class="contenido">
-       <img src="img/user.png" alt="">
-       <h2 class="nombre">Nombre profesor</h2>
-       <center>
-       <a class="correo" href="">correo@usbbog.edu.co</a>
-       <p class="desc">Descripción del profesor, estudios y universitarios, titulos academicos</p>
-       </center>
-       <div class="botones">
-       <li id="btn" class="btnmaterias" onclick="mostrar(document.getElementById('materia'));"><a id="ocultarmateria1" class="materias" >Materia 1</a></li>
-       <li class="btnmaterias" onclick=";"><a id="mostrarmateria2" class="materias" >Materia 2</a></li>
-       <li class="btnmaterias" ><a class="materias" href="">Materia 3</a></li>
-       <li class="btnmaterias" ><a class="materias" href="">Materia 4</a></li>
-       </div>
+
+    <div class="perfil">
+        <div class="fondo">
+            <a class="icon-cerrar"></a>
+        </div>
+        <div class="contenido">
+            <img src="img/user.png" alt="">
+            <h2 class="nombre">Nombre profesor</h2>
+            <center>
+                <a class="correo" href="">correo@usbbog.edu.co</a>
+                <p class="desc">Descripción del profesor, estudios y universitarios, titulos academicos</p>
+            </center>
+            <div class="scroll-menu">
+                <div class="botones">
+                    <li id="btn" class="btnmaterias" onclick="mostrar(document.getElementById('materia'));"><a
+                            id="ocultarmateria1" class="materias">Materia 1</a></li>
+                    <li class="btnmaterias" onclick=";"><a id="mostrarmateria2" class="materias">Materia 2</a></li>
+                    <li class="btnmaterias"><a class="materias" href="">Materia 3</a></li>
+                    <li class="btnmaterias"><a class="materias" href="">Materia 4</a></li>
+                    <li class="btnmaterias"><a class="materias" href="">Materia 5</a></li>
+                    <li class="btnmaterias"><a class="materias" href="">Materia 6</a></li>
+                    <li class="btnmaterias"><a class="materias" href="">Materia 7</a></li>
+                </div>
+            </div>
+
+        </div>
     </div>
-   </div>
-   <!--publicaciones hechas-->
+    <div class="espacio-muro">
+        <center>
+            <iframe class="muro" src="../muro/index.html"></iframe>
+        </center>
+    </div>
+    <!--publicaciones hechas-->
     <div id="materia" class="materia">
-       <a class="icon-volver" onclick="ocultar();"></a>
-       <div class="publicvista">
-       <h2 class="nombrevista">Nombre publicación</h2><br>
-       <div class="botonesa">
-       <a href="" class="icon-eliminar"></a>
-       <a href="" class="icon-eye"></a>
-       <a href="" class="icon-editar"></a>
-       </div>
-       </div>
-        <a class="crear" onclick="mostrar(document.getElementById('crear'));" id="generar">+</a>
+        <div class="div-volver">
+            <a class="icon-volver" onclick="ocultar();"></a>
+        </div>
+        <div class="publicaciones-hechas">
+            <div class="publicvista">
+                <h2 class="nombrevista">Nombre publicación</h2><br>
+                <div class="botonesa">
+                    <a href="" class="icon-eliminar"></a>
+                    <a href="" class="icon-eye"></a>
+                    <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
+                </div>
+            </div>
+            <div class="publicvista">
+                <h2 class="nombrevista">Nombre publicación</h2><br>
+                <div class="botonesa">
+                    <a href="" class="icon-eliminar"></a>
+                    <a href="" class="icon-eye"></a>
+                    <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
+                </div>
+            </div>
+            <div class="publicvista">
+                <h2 class="nombrevista">Nombre publicación</h2><br>
+                <div class="botonesa">
+                    <a href="" class="icon-eliminar"></a>
+                    <a href="" class="icon-eye"></a>
+                    <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
+                </div>
+            </div>
+            <div class="publicvista">
+                <h2 class="nombrevista">Nombre publicación</h2><br>
+                <div class="botonesa">
+                    <a href="" class="icon-eliminar"></a>
+                    <a href="" class="icon-eye"></a>
+                    <a onclick="mostrar(document.getElementById('crear'));" class="icon-editar"></a>
+                </div>
+            </div>
+            <div class="publicvista" onclick="mostrar(document.getElementById('crear'));" id="boton-public">
+                <a class="crear-public" id="generar">+</a>
+            </div>
+        </div>
     </div>
     <!--crear publicacion-->
     <div id="crear">
-       <a class="icon-volver" id="volver" onclick="ocultar2();"></a>
-        <h1 class="titulocrear"><p class="inicial">P</p>ublicación</h1>
+        <a class="icon-volver" id="volver" onclick="ocultar2();"></a>
+        <h1 class="titulocrear">Publicación</h1>
         <center>
-        <input class="titulo" type="text" name="Titulo" placeholder="Ingrese el titulo">
-        <br>
-        <textarea class="descripcionpublicacion" name="textarea" placeholder="Descripción ..."></textarea>
+            <input class="titulo" type="text" name="Titulo" placeholder="Ingrese el titulo">
+            <br>
+            <textarea class="descripcionpublicacion" name="textarea" placeholder="Descripción ..."></textarea>
         </center>
         <center>
-        <div class="archivos-subidos">
-        <table class="espacio-documento-subido">
-            <tr>
-               <th class="titulo-tabla">Id</th>
-                <th class="titulo-tabla">Nombre</th>
-                <th class="titulo-tabla">Tipo</th>
-                <th class="titulo-tabla">Eliminar | Editar</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Nombre</td>
-                <td>.pdf</td>
-                <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
-                
-            </tr>
-        </table>
-        </div>
+            <div class="archivos-subidos">
+                <table class="espacio-documento-subido">
+                    <tr>
+                        <th class="titulo-tabla">Id</th>
+                        <th class="titulo-tabla">Nombre</th>
+                        <th class="titulo-tabla">Tipo</th>
+                        <th class="titulo-tabla">Eliminar | Editar</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nombre</td>
+                        <td>.pdf</td>
+                        <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nombre</td>
+                        <td>.pdf</td>
+                        <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nombre</td>
+                        <td>.pdf</td>
+                        <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nombre</td>
+                        <td>.pdf</td>
+                        <td><a href="#" class="icon-eliminar"></a><a href="#" class="icon-editar"></a></td>
+
+                    </tr>
+                </table>
+            </div>
         </center>
         <center>
-        <form>
-        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos1" class="icon-pdf" ></i>
-        </label></li>
-        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos2" class="icon-doc" ></i>
-        </label></li>
-        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos3" class="icon-img" ></i>
-        </label></li>
-        <li class="imagenessubida"><label class="subir"><input type="file"/><i id="archivos4" class="icon-audio" ></i>
-        </label></li>
-        <li class="imagenessubida"><i onclick="animar(document.getElementById('youtube'));" id="archivos5" class="icon-video" ></i></li>
-        </form>
-        </center> 
+            <form>
+                <li class="imagenessubida"><label class="subir"><input type="file" /><i id="archivos1"
+                            class="icon-pdf"></i>
+                    </label></li>
+                <li class="imagenessubida"><label class="subir"><input type="file" /><i id="archivos2"
+                            class="icon-doc"></i>
+                    </label></li>
+                <li class="imagenessubida"><label class="subir"><input type="file" /><i id="archivos3"
+                            class="icon-img"></i>
+                    </label></li>
+                <li class="imagenessubida"><label class="subir"><input type="file" /><i id="archivos4"
+                            class="icon-audio"></i>
+                    </label></li>
+                <li class="imagenessubida"><i onclick="animar(document.getElementById('youtube'));" id="archivos5"
+                        class="icon-video"></i></li>
+            </form>
+        </center>
         <center>
-        <a class="publicar" href="">Publicar</a>
+            <a class="publicar" href="">Publicar</a>
         </center>
         <!--div de subida youtube-->
         <center>
-        <div class="youtube" id="youtube">
-          <a class="icon-cerrar" href=""></a>
-           <h2>Ingrese el link del video <br>&#711</h2>
-            <input type="text" class="link"><br>
-            <a class="subir-youtube" href="">Subir</a>
-        </div>
+            <div class="youtube" id="youtube">
+                <a class="icon-cerrar" id="cerrar-youtube"
+                    onclick="cancelarvideo(document.getElementById('youtube'));"></a>
+                <h2>Ingrese el link del video <br>
+                    <h1>&#711</h1>
+                </h2>
+                <input type="text" class="link"><br>
+                <a class="subir-youtube" href="">Subir</a>
+            </div>
         </center>
     </div>
     <script src="js/profesores.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
 </body>
+
 </html>
