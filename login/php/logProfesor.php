@@ -15,7 +15,7 @@ function loginCorrecto($user, $pass){
 
     $conn = new mysqli($server, $username, $password, $database);
 
-    $SQL = "select * FROM TB_USB_PROFESORES WHERE NOMBRE='$user' AND CONTRASENA = '$pass'";
+    $SQL = "select * FROM TB_USB_PROFESORES WHERE USUARIO='$user' AND CONTRASENA = '$pass'";
 
 
     $RES = mysqli_query($conn, $SQL);

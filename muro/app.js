@@ -1,13 +1,5 @@
 var timeline = document.getElementById('timeline');
 
-var publicacion = new Publicacion("profesor", "20 Octubre 2019", "../profesor/img/user.png", "titulo", "                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita iste sed ipsum reprehenderit, corrupti dolore dolores quaerat quasi illum ad ipsam nulla odit molestias minus amet. Nemo autem corporis recusandae!", "tagMateria", "tagCarrera", "tagSemestre");
-
-var publicacion2 = new Publicacion("profesor", "20 Octubre 2019", "../profesor/img/user.png", "titulo", "descripcion", "tagMateria", "tagCarrera", "tagSemestre");
-
-var publicacion3 = new Publicacion("profesor", "20 Octubre 2019", "../profesor/img/user.png", "titulo", "descripcion", "tagMateria", "tagCarrera", "tagSemestre");
-
-var publicaciones = [];
-
 window.addEventListener("load",start);
 
 function start(){
@@ -32,8 +24,7 @@ function sqlStart(cantidad, json){
     var obj;
 
     for(var i = 1; i <= cantidad; i++){
-2
-        obj = new Publicacion(json[i][0], json[i][11], "../profesor/img/user.png", json[i][8], json[i][9], "tagMateria", "tagCarrera", "tagSemestre");
+        obj = new Publicacion(json[i].profesor, json[i].fecha, `../recursos/${json[i].avatar}`, json[i].titulo, json[i].descripcion, json[i].materia, json[i].carrera, json[i].semestre);
         timeline.appendChild(obj.getElement());
     }
 

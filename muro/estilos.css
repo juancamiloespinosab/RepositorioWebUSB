@@ -332,7 +332,6 @@
 
 .txt-profesor {
     position: relative;
-    left: -20px;
 }
 
 .publiBody {
@@ -459,9 +458,10 @@
     color: white;
     user-select: none;
     text-align: center;
+    font-size: 80%;
 
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 40% 40% 1fr;
     justify-content: center;
     align-items: center;
 }
@@ -485,6 +485,9 @@
 
 .tag-carrera {
     background: var(--bgMoradoPubli);
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
 
 .tag-semestre {
