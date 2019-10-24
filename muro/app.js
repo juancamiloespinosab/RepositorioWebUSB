@@ -24,7 +24,7 @@ function sqlStart(cantidad, json){
     var obj;
 
     for(var i = 1; i <= cantidad; i++){
-        obj = new Publicacion(json[i].profesor, json[i].fecha, `../recursos/${json[i].avatar}`, json[i].titulo, json[i].descripcion, json[i].materia, json[i].carrera, json[i].semestre);
+        obj = new Publicacion(json[i].profesor, json[i].fecha, `../recursos/${json[i].avatar}`, json[i].titulo, json[i].descripcion, json[i].materia, json[i].carrera, json[i].semestre, json[i].documentos);
         timeline.appendChild(obj.getElement());
     }
 

@@ -1,7 +1,7 @@
 
 
 class Publicacion {
-    constructor(profesor, fecha, imagen, titulo, descripcion, tagMateria, tagCarrera, tagSemestre){
+    constructor(profesor, fecha, imagen, titulo, descripcion, tagMateria, tagCarrera, tagSemestre, docList){
         
         this.profesor = profesor;
         this.fecha = fecha;
@@ -11,6 +11,10 @@ class Publicacion {
         this.tagMateria = tagMateria;
         this.tagCarrera = tagCarrera;
         this.tagSemestre = tagSemestre;
+        this.docList = docList;
+        this.count = docList.length;
+
+        this.flechaStatus = "closed";
 
         this.publicacion = document.createElement('div');
         this.publicacion.classList.add('publicacion')
@@ -44,6 +48,30 @@ class Publicacion {
                             this.flecha.src = "img/flecha.png";
                             this.flecha.alt = ">";
 
+                            this.txtFlecha = document.createElement('h1');
+                            this.txtFlecha.classList.add('txt-flecha');
+                            this.txtFlecha.classList.add('open');
+                            this.txtFlecha.innerText = "Documentos";
+
+                            this.documentosGrilla = document.createElement('div');
+                            this.documentosGrilla.classList.add("documentos-grilla");
+
+                                this.documentosGrillaInner = document.createElement('div');
+                                this.documentosGrillaInner.classList.add('documentos-grilla-inner');
+                                this.documentosGrillaInner.classList.add('parentCenter');
+
+                                    this.carpeta = document.createElement('img');
+                                    this.carpeta.classList.add('carpeta');
+                                    this.carpeta.src = "../recursos/iconos/carpeta.png";
+
+                                    this.carpetaCount = document.createElement('div');
+                                    this.carpetaCount.classList.add('carpeta-count');
+                                    this.carpetaCount.classList.add('parentCenter');
+                                    
+                                        this.txtCount = document.createElement('h1');
+                                        this.txtCount.classList.add('open');
+                                        this.txtCount.innerText = this.count;
+
                     this.contenidoPublicacion = document.createElement('div');
                     this.contenidoPublicacion.classList.add('contenido-publicacion');
                     this.contenidoPublicacion.innerHTML = `
@@ -69,7 +97,12 @@ class Publicacion {
 
         this.flecha.addEventListener("click", () => this.flechaOn());
     
+        this.carpetaCount.appendChild(this.txtCount);
+        this.documentosGrillaInner.appendChild(this.carpeta);
+        this.documentosGrillaInner.appendChild(this.carpetaCount);
+        this.documentosGrilla.appendChild(this.documentosGrillaInner);
         this.documentosInner.appendChild(this.flecha);
+        this.documentosInner.appendChild(this.documentosGrilla);
         this.documentos.appendChild(this.documentosInner);
         this.publiBody.appendChild(this.documentos);
         this.publiBody.appendChild(this.contenidoPublicacion);
@@ -83,8 +116,47 @@ class Publicacion {
         this.documentosInner.classList.toggle('documentos-inner-on');
         this.publiBody.classList.toggle('publiBody-on');
         this.flecha.classList.toggle("flecha-on");
+        this.documentosGrilla.classList.toggle('documentos-grilla-on');
+        this.documentosGrillaInner.classList.toggle('documentos-grilla-inner-on');
+        this.txtFlecha.classList.toggle('txt-flecha-on');
+
+        if(this.flechaStatus == "closed"){
+            this.flechaStatus = "open";
+            this.carpeta.parentNode.removeChild(this.carpeta);
+            this.carpetaCount.parentNode.removeChild(this.carpetaCount);
+            this.documentosInner.appendChild(this.txtFlecha);
+            this.addDocuments();
+        } else {
+            this.flechaStatus = "closed";
+            this.removeDocuments();
+            this.txtFlecha.parentNode.removeChild(this.txtFlecha);
+            this.documentosGrillaInner.appendChild(this.carpeta);
+            this.documentosGrillaInner.appendChild(this.carpetaCount);
+        }
     }
     getElement(){
         return this.publicacion;
+    }
+    addDocuments(){
+
+        for(var i = 0; i < this.count; i++){
+            this.doc = document.createElement('a');
+            this.doc.classList.add('doc');
+            this.doc.style.background = `url('../recursos/iconos/${this.docList[i].tipo}.png') 0 0/100% 100%`;
+            this.doc.href = `${this.docList[i].ruta}`;
+            this.doc.target = "_blank";
+    
+            this.txtDoc = document.createElement('h1');
+            this.txtDoc.classList.add('open');
+            this.txtDoc.classList.add('txt-doc');
+            this.txtDoc.innerText = this.docList[i].nombre;
+    
+            this.documentosGrillaInner.appendChild(this.doc);
+            this.documentosGrillaInner.appendChild(this.txtDoc);
+        }
+    }
+
+    removeDocuments(){
+        this.documentosGrillaInner.innerHTML = "";
     }
 }

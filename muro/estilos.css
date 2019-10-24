@@ -197,16 +197,16 @@
     width: 10px;
 }
 
-.filtros::-webkit-scrollbar, .descripcion::-webkit-scrollbar {
+.filtros::-webkit-scrollbar, .descripcion::-webkit-scrollbar, .documentos-grilla-on::-webkit-scrollbar {
     width: 5px;
 }
 
-.timeline::-webkit-scrollbar-thumb, .filtros::-webkit-scrollbar-thumb, .descripcion::-webkit-scrollbar-thumb {
+.timeline::-webkit-scrollbar-thumb, .filtros::-webkit-scrollbar-thumb, .descripcion::-webkit-scrollbar-thumb, .documentos-grilla-on::-webkit-scrollbar {
     background: hsl(0, 0%, 70%);
     border-radius: 50px;
 }
 
-.timeline::-webkit-scrollbar-thumb:hover, .filtros::-webkit-scrollbar-thumb:hover, .descripcion::-webkit-scrollbar-thumb:hover {
+.timeline::-webkit-scrollbar-thumb:hover, .filtros::-webkit-scrollbar-thumb:hover, .descripcion::-webkit-scrollbar-thumb:hover, .documentos-grilla-on::-webkit-scrollbar:hover {
     background: hsl(0, 0%, 60%);
 }
 
@@ -313,11 +313,15 @@
 }
 
 .publiHead {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
     background: var(--azul);
     border-radius: 10px 10px 0 0;
     color: white;
     user-select: none;
     text-align: center;
+    font-size: 90%;
 
     display: flex;
     justify-content: space-around;
@@ -328,10 +332,19 @@
 .avatar {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background: white;
 }
 
 .txt-profesor {
     position: relative;
+}
+
+.txt-fecha {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
 }
 
 .publiBody {
@@ -346,7 +359,6 @@
     justify-items: center;
     align-items: center;
 
-    transition: .5s all;
 }
 
 .publiBody-on {
@@ -362,10 +374,11 @@
 .documentos {
     width: 100%;
     height: 100%;
+    user-select: none;
 }
 
 .documentos-inner {
-    margin-left: 20px ;
+    margin-left: 25px;
     width: 100%;
     height: 90%;
     border-radius: 10px;
@@ -373,12 +386,62 @@
     box-shadow: 0 0 5px hsl(0, 0%, 70%);
 
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 1fr;
+
+    justify-items: center;
+    align-items: center;
 
     text-align: left;
     z-index: 20;
+
+    transition: .3s all;
     
+}
+
+.documentos-inner-on {
+    height: 95%;
+    grid-template-columns: 1fr 3fr;
+}
+
+.documentos-grilla {
+    max-height: 200px;
+    width: 100%;
+    grid-column: 1/2;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    justify-items: center;
+    align-items: center;
+
+}
+
+.documentos-grilla-on {
+    overflow-y: scroll;
+    grid-row: 2/3;
+    grid-column: 1/3;
+}
+
+.documentos-grilla-inner {
+    height: 100%;
+    width: 100%;
+
+    flex-direction: column;
+}
+
+.documentos-grilla-inner-on {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 5px;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-gap: 10px;
+
+    justify-items: center;
 }
 
 
@@ -418,22 +481,64 @@
     }
 }
 
+.txt-flecha {
+    width: 100%;
+    font-size: 150%;
+    visibility: visible;
+}
+
+.carpeta {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.carpeta-count {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transform: translateY(-20px) translateX(15px);
+    z-index: 50;
+    background: var(--rojo);
+    border-radius: 50%;
+    color: white;
+    font-size: 70%;
+}
+
+.doc {
+    width: 50px;
+    height: 50px;
+}
+
+.txt-doc {
+    width: 100%;
+    font-size: 100%;
+    font-weight: lighter;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
 .titulo {
     max-height: 100px;
 }
 
 .txt-titulo {
     font-size: 110%;
+    text-align: center;
     
 }
 
 .descripcion {
+    max-width: 350px;
     max-height: 200px;
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
 .txt-descripcion {
     font-size: 90%;
+    text-overflow: ellipsis;
 }
 
 .txt-verMas {
@@ -453,6 +558,9 @@
 }
 
 .publiFoot {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
     background: var(--azul);
     border-radius: 0 0 10px 10px;
     color: white;
@@ -493,4 +601,5 @@
 .tag-semestre {
     background: var(--bgCafePubli);
 }
+
 

@@ -7,9 +7,6 @@ $username = 'root';
 $password = '';
 $database = 'repositoriousbbog';
 
-$id_pub = 0;
-
-
 $conn = new mysqli($server, $username, $password, $database);
 
 $sql = "select tb_usb_publicaciones.id_publicacion, tb_usb_profesores.avatar, tb_usb_profesores.nombre, tb_usb_publicaciones.fecha, tb_usb_publicaciones.titulo, tb_usb_publicaciones.descripcion, tb_usb_materia.nombre, tb_usb_programas.nombre, tb_usb_semestre.nombre
@@ -24,10 +21,6 @@ INNER JOIN tb_usb_semestre ON tb_usb_publicaciones.id_semestre = tb_usb_semestre
 ORDER BY tb_usb_publicaciones.id_publicacion DESC
 
 ;";
-
-$sql2 = "select tb_usb_documentos.tipo, tb_usb_documentos.ruta
-FROM tb_usb_documentos
-WHERE tb_usb_documentos.id_publicacion = ". $id_pub;
 
 $res = mysqli_query($conn, $sql);
 
@@ -63,15 +56,23 @@ for($i = 0; $i < $nums; $i++){
     $arr["materia"] = utf8_encode($fila[6]);
     $arr["carrera"] = utf8_encode($fila[7]);
     $arr["semestre"] = utf8_encode($fila[8]);
+    $arr["documentos"] = array();
 
-    $id_pub = $fila[0];
+    $sql2 = "select tipo, nombre , ruta
+            FROM tb_usb_documentos
+            WHERE id_publicacion = ". $arr["id"] .";";
 
     $res_docs = mysqli_query($conn, $sql2);
-    $num_res_docs = count($res_docs);
 
-    $arr_docs = array();
+    while($fila_docs = mysqli_fetch_row($res_docs)){
+        $arr_docs = array(
+            "tipo" => utf8_encode($fila_docs[0]),
+            "nombre" => utf8_encode($fila_docs[1]),
+            "ruta" => utf8_encode($fila_docs[2])
+        );
 
-    
+        array_push($arr["documentos"],$arr_docs);
+    }
 
 
     array_push($json,$arr);
