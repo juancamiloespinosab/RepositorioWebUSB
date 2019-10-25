@@ -2,7 +2,7 @@
 
 $consulta = json_decode(file_get_contents('php://input'));
 
-$server = 'localhost';
+$server = 'localhost:3309';
 $username = 'root';
 $password = '';
 $database = 'repositoriousbbog';

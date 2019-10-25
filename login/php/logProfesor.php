@@ -7,7 +7,7 @@ $pass = $data->clave;
 
 function loginCorrecto($user, $pass){
 
-    $server = 'localhost';
+    $server = 'localhost:3309';
     $username = 'root';
     $password = '';
     $database = 'repositoriousbbog';
