@@ -215,6 +215,7 @@
     width: 100%;
     height: 100%;
     overflow-y: scroll;
+
 }
 
 .filtros {
@@ -232,22 +233,59 @@
     align-items: center;
 }
 
-.filtro, .btn-filtrar-inner {
+.btn-filtrar-inner {
     width: 100%;
     height: 100%;
     margin-bottom: 10px;
     margin-top: 10px;
+    
+}
 
-    transition: .3s all;
+.filtro {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .filtro-inner {
     height: 50%;
+    position: relative;
 
     transition: .3s all;
 }
 
 .filtro-inner-on {
+    height: 100%;
+}
+
+.items {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    
+    transition: .3s all;
+}
+
+.items-on {
+    
+    height: 100%;
+    opacity: 1;
+}
+
+.txt-item {
+    width: 90%;
+    height: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--txtVerde);
+
+    /* transition: .3s all; */
+}
+
+.txt-item-on {
+    padding: 5%;
     height: 100%;
 }
 
@@ -310,16 +348,8 @@
 }
 
 .filtro div img:hover{
-    /* transform: rotate(90deg) translateX(5px); */
     top: 3px;
     
-}
-
-.items {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .filtro-titulo {
@@ -328,13 +358,6 @@
     text-align: center;
     font-size: 110%;
     border: 1px solid var(--txtVerde);
-}
-
-.txt-item {
-    width: 90%;
-    padding: 5%;
-    height: 100%;
-    border-bottom: 1px solid var(--txtVerde);
 }
 
 .txt-item:hover {
@@ -422,9 +445,11 @@
 }
 
 .publiBody div > p {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
+
     padding: 20px;
-    justify-content: center;
+    justify-items: center;
 }
 
 .documentos {
@@ -444,7 +469,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 70px 1fr;
-
+    
     justify-items: center;
     align-items: center;
 

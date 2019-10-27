@@ -1,4 +1,9 @@
-
+var listChecks = {
+    'Semestres': [],
+    'Carreras': [],
+    'Profesores': [],
+    'Materias': []
+};
 
 class Publicacion {
     constructor(profesor, fecha, imagen, titulo, descripcion, tagMateria, tagCarrera, tagSemestre, docList){
@@ -168,6 +173,8 @@ class Filtro {
         this.name = name;
         this.checks = checks;
         this.tam = tam;
+        this.listItems = [];
+
         this.flechaStatus = false;
 
         this.filtro = document.createElement('div');
@@ -187,6 +194,34 @@ class Filtro {
 
                 this.items = document.createElement('section');
                 this.items.classList.add('items');
+
+                for(var i = 0; i < this.tam; i++){
+                    var chkName = this.name + this.checks[i].checkID;
+                    var chkText = this.checks[i].checkText;
+                    var chkID = this.checks[i].checkID;
+        
+                    this.label = document.createElement('label');
+                    this.label.setAttribute("for",chkName);
+                    this.label.classList.add('txt-item');
+                    this.label.classList.add('open');
+
+                        this.check = document.createElement('input');
+                        this.check.id = chkName;
+                        this.check.classList.add('txt-input');
+                        this.check.type = "checkbox";
+                        this.check.value = chkID;
+
+                        this.check.addEventListener('change', e => this.checkChange(e, this.name));
+
+                        this.label.appendChild(this.check);
+                        this.label.append(" " + chkText);
+
+                    this.listItems.push(this.label);
+        
+                    this.items.appendChild(this.label);
+                }
+
+                this.hideChecks();
 
                 this.flecha = document.createElement('img');
                 this.flecha.src = "img/flecha.png";
@@ -209,46 +244,50 @@ class Filtro {
 
         if(this.flechaStatus){
             this.flechaStatus = false;
-            this.removeChecks();
+            this.hideChecks();
             
         } else {
             this.flechaStatus = true;
-            this.addChecks();
+            this.showChecks();
+            
         }
 
     }
-    addChecks(){
-        for(var i = 0; i < this.tam; i++){
-            var chkID = this.name + this.checks[i].checkID;
-            var chkText = this.checks[i].checkText;
-            var chkVal = this.checks[i].checkID;
-
-            var chk = new Check(chkID, chkText, chkVal);
-            this.items.appendChild(chk.getElement());
-        }
+    showChecks(){
+        this.items.classList.add('items-on');
+        this.listItems.forEach(element => {
+            element.classList.add('txt-item-on');
+        });
     }
-    removeChecks(){
-        this.items.innerHTML = "";
+    hideChecks(){
+        this.items.classList.remove('items-on');
+        this.listItems.forEach(element => {
+            element.classList.remove('txt-item-on');
+        });
+    }
+    checkChange(e, name){
+        this.toggleCheckList(name, e.target.value);
+    }
+    toggleCheckList(name, val){
+        var i = 0;
+        var exits = false;
+
+        listChecks[name].forEach(element => {
+            if(element == val){
+                listChecks[name].splice(i, 1);
+                exits = true;
+                return 0;
+            }
+            i++;
+        });
+
+        if(!exits){
+            listChecks[name].push(val);
+        }
+
     }
 
     getElement(){
         return this.filtro;
-    }
-}
-
-class Check {
-    constructor(name, checkText, checkID){
-
-        this.label = document.createElement('label');
-        this.label.setAttribute("for",name);
-        this.label.classList.add('txt-item');
-        this.label.classList.add('open');
-        this.label.innerHTML = `
-        <input id="${name}" class="txt-input" type="checkbox" value="${checkID}" > ${checkText}
-        `;
-
-    }
-    getElement(){
-        return this.label;
     }
 }

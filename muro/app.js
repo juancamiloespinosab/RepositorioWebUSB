@@ -1,6 +1,23 @@
 var timeline = document.getElementById('timeline');
 var filtros = document.getElementById('filtros');
 
+var btnFiltrar = document.getElementById('btnFiltrar').addEventListener('click', () => {
+    var data = listChecks;
+
+        fetch('php/consultas.php', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(function (res) {
+                return res.json();
+            })
+            .then(function (miRes) {
+                console.log(miRes)
+                sqlStartTimeLine(miRes[0], miRes);
+        });
+});
+
 window.addEventListener("load",startTimeline);
 window.addEventListener("load",startFiltros);
 
@@ -16,7 +33,6 @@ function startTimeline(){
                 return res.json();
             })
             .then(function (miRes) {
-                
                 sqlStartTimeLine(miRes[0], miRes);
             });
 }
@@ -44,7 +60,6 @@ function startFiltros(){
                 return res.json();
             })
             .then(function (miRes) {
-                console.log(miRes);
                 sqlStartFiltros(miRes);
             });
 }
