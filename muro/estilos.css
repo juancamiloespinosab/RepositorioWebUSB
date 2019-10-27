@@ -97,9 +97,10 @@
 .nav {
     position: fixed;
     width: 100vw;
-    height: 70px;
+    height: 10vh;
     background: var(--bgVerde);
     padding: 5px 0 5px 0;
+    z-index: 200;
 
     display: grid;
     grid-template-columns: 900px;
@@ -118,7 +119,7 @@
 }
 
 .logo {
-    height: 70px;
+    height: 10vh;
     color: white;
 
     display: flex;
@@ -217,6 +218,7 @@
 }
 
 .filtros {
+    height: 90vh;
     box-shadow: 2px 2px 10px hsl(0, 0%, 70%);
     z-index: 20;
     user-select: none;
@@ -224,18 +226,43 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100px repeat(4,1fr);
+    grid-gap: 10px;
 
     justify-items: center;
     align-items: center;
 }
 
-.filtro {
+.filtro, .btn-filtrar-inner {
     width: 100%;
     height: 100%;
     margin-bottom: 10px;
+    margin-top: 10px;
+
+    transition: .3s all;
+}
+
+.filtro-inner {
+    height: 50%;
+
+    transition: .3s all;
+}
+
+.filtro-inner-on {
+    height: 100%;
+}
+
+.btn-filtrar-inner {
+    position: sticky;
+    background: white;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px hsl(0, 0%, 60%);
+
+    transition: .3s all;
 }
 
 .btn-filtrar {
+    height: 40%;
     width: 80%;
     font-size: 120%;
     background: var(--bgVerde);
@@ -243,8 +270,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 10px;
-    box-shadow: 0 0 5px grey;
+    box-shadow: 0 0 65px white;
     text-shadow: 0 0 0 black;
 
     transition: .3s all;
@@ -252,8 +278,9 @@
 }
 
 .btn-filtrar:hover {
-    filter: brightness(120%);
     text-shadow: 0 0 5px black;
+    border-radius: 20px;
+    background: var(--Naranja);
 }
 
 .filtro div{
@@ -266,15 +293,33 @@
 }
 
 .filtro div img{
+    position: relative;
+    top: 0;
     width: 50px;
-    transform: rotate(90deg);
     cursor: pointer;
 
     transition: .3s all;
 }
 
+.img-flecha-initial {
+    transform: rotate(90deg);
+}
+
+.img-flecha-on {
+    transform: rotate(270deg);
+}
+
 .filtro div img:hover{
-    transform: rotate(90deg) translateX(5px);
+    /* transform: rotate(90deg) translateX(5px); */
+    top: 3px;
+    
+}
+
+.items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .filtro-titulo {
@@ -282,7 +327,18 @@
     width: 100%;
     text-align: center;
     font-size: 110%;
-    margin-bottom: 5px;
+    border: 1px solid var(--txtVerde);
+}
+
+.txt-item {
+    width: 90%;
+    padding: 5%;
+    height: 100%;
+    border-bottom: 1px solid var(--txtVerde);
+}
+
+.txt-item:hover {
+    background: hsl(0, 0%, 85%);
 }
 
 .timeline {
@@ -601,5 +657,3 @@
 .tag-semestre {
     background: var(--bgCafePubli);
 }
-
-

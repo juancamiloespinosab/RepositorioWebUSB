@@ -160,3 +160,95 @@ class Publicacion {
         this.documentosGrillaInner.innerHTML = "";
     }
 }
+
+class Filtro {
+    constructor(color, name, checks, tam){
+
+        this.color = color;
+        this.name = name;
+        this.checks = checks;
+        this.tam = tam;
+        this.flechaStatus = false;
+
+        this.filtro = document.createElement('div');
+        this.filtro.classList.add('filtro');
+        this.filtro.classList.add('parentCenter');
+
+            this.filtroInner = document.createElement('div');
+            this.filtroInner.classList.add('parentCenter');
+            this.filtroInner.classList.add('filtro-inner');
+
+                this.filtroTitulo = document.createElement('p');
+                this.filtroTitulo.classList.add('filtro-titulo');
+                this.filtroTitulo.classList.add('open');
+                this.filtroTitulo.classList.add('b700');
+                this.filtroTitulo.classList.add(this.color);
+                this.filtroTitulo.innerText = this.name;
+
+                this.items = document.createElement('section');
+                this.items.classList.add('items');
+
+                this.flecha = document.createElement('img');
+                this.flecha.src = "img/flecha.png";
+                this.flecha.alt = "▲";
+                this.flecha.classList.add('img-flecha-initial');
+                this.flecha.addEventListener('click', () => this.flechaOn());
+
+                this.filtroInner.appendChild(this.filtroTitulo);
+
+                this.filtroInner.appendChild(this.items);
+
+                this.filtroInner.appendChild(this.flecha);
+
+                this.filtro.appendChild(this.filtroInner);
+    }
+    flechaOn(){
+
+        this.flecha.classList.toggle('img-flecha-on');
+        this.filtroInner.classList.toggle('filtro-inner-on');
+
+        if(this.flechaStatus){
+            this.flechaStatus = false;
+            this.removeChecks();
+            
+        } else {
+            this.flechaStatus = true;
+            this.addChecks();
+        }
+
+    }
+    addChecks(){
+        for(var i = 0; i < this.tam; i++){
+            var chkID = this.name + this.checks[i].checkID;
+            var chkText = this.checks[i].checkText;
+            var chkVal = this.checks[i].checkID;
+
+            var chk = new Check(chkID, chkText, chkVal);
+            this.items.appendChild(chk.getElement());
+        }
+    }
+    removeChecks(){
+        this.items.innerHTML = "";
+    }
+
+    getElement(){
+        return this.filtro;
+    }
+}
+
+class Check {
+    constructor(name, checkText, checkID){
+
+        this.label = document.createElement('label');
+        this.label.setAttribute("for",name);
+        this.label.classList.add('txt-item');
+        this.label.classList.add('open');
+        this.label.innerHTML = `
+        <input id="${name}" class="txt-input" type="checkbox" value="${checkID}" > ${checkText}
+        `;
+
+    }
+    getElement(){
+        return this.label;
+    }
+}
