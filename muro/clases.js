@@ -1,4 +1,9 @@
-
+var listChecks = {
+    'Semestres': [],
+    'Carreras': [],
+    'Profesores': [],
+    'Materias': []
+};
 
 class Publicacion {
     constructor(profesor, fecha, imagen, titulo, descripcion, tagMateria, tagCarrera, tagSemestre, docList){
@@ -158,5 +163,146 @@ class Publicacion {
 
     removeDocuments(){
         this.documentosGrillaInner.innerHTML = "";
+    }
+}
+
+class Filtro {
+    constructor(color, name, checks, tam){
+
+        this.color = color;
+        this.name = name;
+        this.checks = checks;
+        this.tam = tam;
+        this.listItems = [];
+
+        this.flechaStatus = false;
+
+        this.filtro = document.createElement('div');
+        this.filtro.classList.add('filtro');
+        this.filtro.classList.add('parentCenter');
+
+            this.filtroInner = document.createElement('div');
+            this.filtroInner.classList.add('parentCenter');
+            this.filtroInner.classList.add('filtro-inner');
+
+                this.filtroTitulo = document.createElement('p');
+                this.filtroTitulo.classList.add('filtro-titulo');
+                this.filtroTitulo.classList.add('open');
+                this.filtroTitulo.classList.add('b700');
+                this.filtroTitulo.classList.add(this.color);
+                this.filtroTitulo.innerText = this.name;
+
+                this.items = document.createElement('section');
+                this.items.classList.add('items');
+
+                for(var i = 0; i < this.tam; i++){
+                    var chkName = this.name + this.checks[i].checkID;
+                    var chkText = this.checks[i].checkText;
+                    var chkID = this.checks[i].checkID;
+        
+                    this.label = document.createElement('label');
+                    this.label.setAttribute("for",chkName);
+                    this.label.classList.add('txt-item');
+                    this.label.classList.add('open');
+
+                        this.check = document.createElement('input');
+                        this.check.id = chkName;
+                        this.check.classList.add('txt-input');
+                        this.check.type = "checkbox";
+                        this.check.value = chkID;
+
+                        this.check.addEventListener('change', e => this.checkChange(e, this.name));
+
+                        this.label.appendChild(this.check);
+                        this.label.append(" " + chkText);
+
+                    this.listItems.push(this.label);
+        
+                    this.items.appendChild(this.label);
+                }
+
+                this.hideChecks();
+
+                this.flecha = document.createElement('img');
+                this.flecha.src = "img/flecha.png";
+                this.flecha.alt = "▲";
+                this.flecha.classList.add('img-flecha-initial');
+                this.flecha.addEventListener('click', () => this.flechaOn());
+
+                this.filtroInner.appendChild(this.filtroTitulo);
+
+                this.filtroInner.appendChild(this.items);
+
+                this.filtroInner.appendChild(this.flecha);
+
+                this.filtro.appendChild(this.filtroInner);
+    }
+    flechaOn(){
+
+        if(this.tam > listChecks[this.name].length){
+            this.flecha.classList.toggle('img-flecha-on');
+            this.filtroInner.classList.toggle('filtro-inner-on');
+
+            if(this.flechaStatus){
+                this.flechaStatus = false;
+                this.hideChecks();
+                
+            } else {
+                this.flechaStatus = true;
+                this.showChecks();
+                
+            }
+        }
+
+    }
+    showChecks(){
+        this.items.classList.add('items-on');
+        this.listItems.forEach(element => {
+            element.classList.add('txt-item-on');
+        });
+    }
+    hideChecks(){
+        this.items.classList.remove('items-on');
+        this.listItems.forEach(element => {
+            if(!element.firstChild.checked){
+                element.classList.remove('txt-item-on');
+            }
+        });
+    }
+    checkChange(e, name){
+        this.toggleCheckList(name, e.target.value);
+        e.target.parentNode.classList.toggle('b700');
+
+        if(!e.target.checked && !this.flechaStatus){
+            e.target.parentNode.classList.remove('txt-item-on');
+        }
+
+        if(this.tam == listChecks[this.name].length){
+            this.flecha.classList.remove('img-flecha-on');
+            this.filtroInner.classList.remove('filtro-inner-on');
+            this.flechaStatus = false;
+        }
+    }
+    toggleCheckList(name, val){
+        var i = 0;
+        var exits = false;
+
+        listChecks[name].forEach(element => {
+            if(element == val){
+                listChecks[name].splice(i, 1);
+                exits = true;
+                return 0;
+            }
+            i++;
+        });
+
+        if(!exits){
+            listChecks[name].push(val);
+        }
+
+    }
+
+    getElement(){
+        return this.filtro;
     }
 }

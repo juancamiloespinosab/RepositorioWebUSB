@@ -30,54 +30,9 @@ $nums = $res->num_rows;
 
 array_push($json,$nums);
 
-$arr = array(
-    "id",
-    "avatar",
-    "profesor",
-    "fecha",
-    "titulo",
-    "descripcion",
-    "materia",
-    "carrera",
-    "semestre",
-    "documentos"
-);
-
-for($i = 0; $i < $nums; $i++){
-
-    $fila = mysqli_fetch_row($res);
-
-    $arr["id"] = utf8_encode($fila[0]);
-    $arr["avatar"] = utf8_encode($fila[1]);
-    $arr["profesor"] = utf8_encode($fila[2]);
-    $arr["fecha"] = utf8_encode($fila[3]);
-    $arr["titulo"] = utf8_encode($fila[4]);
-    $arr["descripcion"] = utf8_encode($fila[5]);
-    $arr["materia"] = utf8_encode($fila[6]);
-    $arr["carrera"] = utf8_encode($fila[7]);
-    $arr["semestre"] = utf8_encode($fila[8]);
-    $arr["documentos"] = array();
-
-    $sql2 = "select tipo, nombre , ruta
-            FROM tb_usb_documentos
-            WHERE id_publicacion = ". $arr["id"] .";";
-
-    $res_docs = mysqli_query($conn, $sql2);
-
-    while($fila_docs = mysqli_fetch_row($res_docs)){
-        $arr_docs = array(
-            "tipo" => utf8_encode($fila_docs[0]),
-            "nombre" => utf8_encode($fila_docs[1]),
-            "ruta" => utf8_encode($fila_docs[2])
-        );
-
-        array_push($arr["documentos"],$arr_docs);
-    }
 
 
-    array_push($json,$arr);
-}
 
-echo json_encode($json);
+echo json_encode($consulta);
 
 ?>
