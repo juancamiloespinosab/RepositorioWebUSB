@@ -142,7 +142,7 @@ function enviarCorreo() {
                 })
                 .then(function (miRes) {
                     console.log(miRes);
-                    if (miRes.envio) {
+                    if (miRes.envio == 202) {
                         accesKey = miRes.accesKey;
                         console.log(">" + accesKey);
                         timerCuenta = setInterval(cuentaRegresiva, 1000);
