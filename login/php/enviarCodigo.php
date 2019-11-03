@@ -1,6 +1,9 @@
 <?php
 
+/*
+
 $rnd = rand(1000, 9999);
+
 
 $correo = json_decode(file_get_contents('php://input'));
 
@@ -66,6 +69,8 @@ $json = array(
     "envio"  => $send,
     "accesKey" => $rnd,
 );
+
+*/
 
 echo json_encode('a');
 
