@@ -67,6 +67,6 @@ $json = array(
     "accesKey" => $rnd,
 );
 
-echo json_encode($json);
+echo json_encode("a");
 
 ?>
