@@ -5,17 +5,6 @@ $rnd = rand(1000, 9999);
 
 $correo = json_decode(file_get_contents('php://input'));
 
-/*
-
-require_once('PHPMailer/config.php');
-
-
-$mail->AddAddress($correo->correo);
-
-$mail->IsHTML(true);
-$mail->Subject = 'Código de acceso';
-
-
 $msg = "
 <style>
   @import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700|Open+Sans:400,600,700,800&display=swap');
@@ -63,20 +52,43 @@ $msg = "
   <p>Su código de acceso al repositorio es el siguiente:<p><br><h2>".$rnd."</h2><br>
 </div>";
 
-$mail->Body = $msg;
-$send = $mail->Send();
+require_once('phpmailer2/PHPMailer.php');
+require_once('phpmailer2/SMTP.php');
 
-$json = array(
-    "envio"  => $send,
-    "accesKey" => $rnd,
-);
+// Load Composer's autoloader
 
-<<<<<<< HEAD
-echo json_encode("a");
-=======
-*/
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(false);
 
-echo json_encode('a');
->>>>>>> 4ba9a6bb3403a717714b92e76782cca07117b63b
+    //Server settings
+    $mail->isSMTP();                                            // Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->Username   = 'tecnologias.usb.bog2019@gmail.com';                     // SMTP username
+    $mail->Password   = 'Tecnologiasusbbog';                               // SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->Port       = 25;                                    // TCP port to connect to
+    $mail->CharSet = 'UTF-8';   /*Codificación del mensaje*/
+
+    //Recipients
+    $mail->setFrom('tecnologias.usb.bog2019@gmail.com', 'Repositorio Web Institucional');
+    $mail->addAddress($correo->correo); 
+
+    // Attachments
+
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Código de acceso';
+    $mail->Body    = $msg;
+    $mail->AltBody = 'Su Código de acceso al repositorio es: '.$rnd;
+
+    $send = $mail->send();
+
+$json = [
+  "envio"  => $send,
+  "accesKey" => $rnd,
+];
+
+echo json_encode($json);
 
 ?>
