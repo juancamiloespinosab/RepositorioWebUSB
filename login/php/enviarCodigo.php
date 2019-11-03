@@ -51,49 +51,6 @@ $msg = "
   <p>Su código de acceso al repositorio es el siguiente:<p><br><h2>".$rnd."</h2><br>
 </div>";
 
-/*
-
-require_once('phpmailer2/PHPMailer.php');
-require_once('phpmailer2/SMTP.php');
-
-// Load Composer's autoloader
-
-// Instantiation and passing `true` enables exceptions
-$mail = new PHPMailer(false);
-
-    //Server settings
-    $mail->isSMTP();                                            // Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'tecnologias.usb.bog2019@gmail.com';                     // SMTP username
-    $mail->Password   = 'Tecnologiasusbbog';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-    $mail->Port       = 25;                                    // TCP port to connect to
-    $mail->CharSet = 'UTF-8';
-
-    //Recipients
-    $mail->setFrom('tecnologias.usb.bog2019@gmail.com', 'Repositorio Web Institucional');
-    $mail->addAddress($correo->correo); 
-
-    // Attachments
-
-    // Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Código de acceso';
-    $mail->Body    = $msg;
-    $mail->AltBody = 'Su Código de acceso al repositorio es: '.$rnd;
-
-    $send = $mail->send();
-
-$json = [
-  "envio"  => $send,
-  "accesKey" => $rnd,
-];
-
-echo json_encode($json);
-
-*/
-
 require_once("SendGrid/sendgrid-php.php");
 
 $from = new SendGrid\Email("Repositorio Web Institucional", "repositorioweb@academia.usbbog.edu.co");
