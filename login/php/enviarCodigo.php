@@ -5,9 +5,10 @@ $rnd = rand(1000, 9999);
 
 $correo = json_decode(file_get_contents('php://input'));
 
+/*
+
 require_once('PHPMailer/config.php');
 
-/*
 
 $mail->AddAddress($correo->correo);
 
