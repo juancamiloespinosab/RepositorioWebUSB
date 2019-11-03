@@ -2,9 +2,13 @@
 
 $rnd = rand(1000, 9999);
 
+
 $correo = json_decode(file_get_contents('php://input'));
 
+/*
+
 require_once('PHPMailer/config.php');
+
 
 $mail->AddAddress($correo->correo);
 
@@ -67,6 +71,12 @@ $json = array(
     "accesKey" => $rnd,
 );
 
+<<<<<<< HEAD
 echo json_encode("a");
+=======
+*/
+
+echo json_encode('a');
+>>>>>>> 4ba9a6bb3403a717714b92e76782cca07117b63b
 
 ?>
