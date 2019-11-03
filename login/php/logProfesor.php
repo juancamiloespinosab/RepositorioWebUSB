@@ -7,10 +7,10 @@ $pass = $data->clave;
 
 function loginCorrecto($user, $pass){
 
-    $server = 'localhost:3309';
-    $username = 'root';
-    $password = '';
-    $database = 'repositoriousbbog';
+    $server = 'us-cdbr-iron-east-05.cleardb.net';
+    $username = 'b3829a1c05ddd3';
+    $password = '03167713';
+    $database = 'heroku_a4bce03159f3805';
 
 
     $conn = new mysqli($server, $username, $password, $database);
