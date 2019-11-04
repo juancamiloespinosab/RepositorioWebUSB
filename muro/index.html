@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Repositorio Web | Muro</title>
-</head>
-
-<body id="root">
-
-    <div class="app">
-
-        <div id="carga" class="modal-inner parentCenter">
-            <div class="carga1"></div>
-            <div class="carga2"></div>
-        </div>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="estilos.css">
+        <title>Repositorio Web | Muro</title>
+    </head>
+    
+    <body id="root">
+        
+        <div class="app">
+            
+            <div id="carga" class="modal-inner parentCenter">
+                <div class="carga1"></div>
+                <div class="carga2"></div>
+            </div>
+            
 
         <div class="nav">
             <div class="nav-inner">
@@ -33,17 +34,24 @@
                     <div class="buscar-inner">
                         <input class="buscar-box open b400" placeholder="Buscar..." type="text" id="txtBuscar">
                         <div class="lupa-container parentCenter">
-                            <img src="img/lupa.png" class="lupa">
+                            <img id="lupa" src="img/lupa.png" class="lupa">
                         </div>
                     </div>
+<!--                     <div class="resBuscar">
+                        <div class="resItem"></div>
+                        <div class="resItem"></div>
+                        <div class="resItem"></div>
+                    </div> -->
                 </div>
+
+                <!-- <div class="fader"></div> -->
 
             </div>
         </div>
 
         <div class="main">
             <div>
-                    
+
 
                 <div id="filtros" class="filtros">
 
@@ -58,6 +66,7 @@
 
 
             <div id="timeline" class="timeline">
+
 
             </div>
         </div>
