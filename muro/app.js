@@ -14,6 +14,7 @@ lupa.addEventListener('click', sqlSearch);
 function sqlSearch(e) {
     if (e.keyCode == 8 && buscarBox.value == "" && inSearch) {
         timeline.innerHTML = "";
+        quitarFiltros(lupa);
         startTimeline();
         inSearch = false;
     }
@@ -32,6 +33,7 @@ function sqlSearch(e) {
                 return res.json();
             })
             .then(function (miRes) {
+                console.log(miRes)
                 carga.cargar();
                 timeline.innerHTML = "";
                 if (miRes == 0) {

@@ -1,6 +1,8 @@
 <?php
 
-$consulta = json_decode(file_get_contents('php://input'));
+ $consulta = json_decode(file_get_contents('php://input'));
+
+ $palabra = $consulta->palabra;
 
 $server = 'us-cdbr-iron-east-05.cleardb.net';
 $username = 'b3829a1c05ddd3';
@@ -18,18 +20,20 @@ INNER JOIN tb_usb_materia ON tb_usb_publicaciones.id_materia = tb_usb_materia.id
 INNER JOIN tb_usb_programas ON tb_usb_materia.id_programa = tb_usb_programas.id_programa
 INNER JOIN tb_usb_semestre ON tb_usb_publicaciones.id_semestre = tb_usb_semestre.id_semestre";
 
-$sql2 = " WHERE tb_usb_profesores.nombre LIKE '%".$consulta->palabra."%'
-or tb_usb_publicaciones.titulo LIKE '%".$consulta->palabra."%'
-or tb_usb_publicaciones.descripcion LIKE '%".$consulta->palabra."%'
-or tb_usb_materia.nombre LIKE '%".$consulta->palabra."%'
-or tb_usb_programas.nombre LIKE '%".$consulta->palabra."%'
-or tb_usb_semestre.nombre LIKE '%".$consulta->palabra."%'";
+$sql2 = " WHERE tb_usb_profesores.nombre LIKE '%".$palabra."%'
+or tb_usb_publicaciones.titulo LIKE '%".$palabra."%'
+or tb_usb_publicaciones.descripcion LIKE '%".$palabra."%'
+or tb_usb_materia.nombre LIKE '%".$palabra."%'
+or tb_usb_programas.nombre LIKE '%".$palabra."%'
+or tb_usb_semestre.nombre LIKE '%".$palabra."%'";
 
 $sql3 = " ORDER BY tb_usb_publicaciones.id_publicacion DESC;";
 
 $sql = $sql1.$sql2.$sql3;
 
+mysqli_query($conn,"SET NAMES 'utf8'");
 $res = mysqli_query($conn, $sql);
+
 
 $json = array();
 
@@ -39,6 +43,7 @@ if(isset($res)){
 } else {
     $nums = 0;
 }
+
 
 $arr = array(
     "id",
@@ -57,15 +62,15 @@ for($i = 0; $i < $nums; $i++){
 
     $fila = mysqli_fetch_row($res);
 
-    $arr["id"] = utf8_encode($fila[0]);
-    $arr["avatar"] = utf8_encode($fila[1]);
-    $arr["profesor"] = utf8_encode($fila[2]);
-    $arr["fecha"] = utf8_encode($fila[3]);
-    $arr["titulo"] = utf8_encode($fila[4]);
-    $arr["descripcion"] = utf8_encode($fila[5]);
-    $arr["materia"] = utf8_encode($fila[6]);
-    $arr["carrera"] = utf8_encode($fila[7]);
-    $arr["semestre"] = utf8_encode($fila[8]);
+    $arr["id"] = $fila[0];
+    $arr["avatar"] = $fila[1];
+    $arr["profesor"] = $fila[2];
+    $arr["fecha"] = $fila[3];
+    $arr["titulo"] = $fila[4];
+    $arr["descripcion"] = $fila[5];
+    $arr["materia"] = $fila[6];
+    $arr["carrera"] = $fila[7];
+    $arr["semestre"] = $fila[8];
     $arr["documentos"] = array();
 
     $sql2 = "select tipo, nombre , ruta
@@ -93,6 +98,8 @@ if($nums >= 1){
 } else {
     echo json_encode($nums);
 }
+
+
 
 
 ?>
