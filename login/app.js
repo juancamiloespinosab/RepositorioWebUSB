@@ -141,10 +141,10 @@ function enviarCorreo() {
                     return res.json();
                 })
                 .then(function (miRes) {
-                    console.log(miRes);
+                    //console.log(miRes);
                     if (miRes.envio == 202) {
                         accesKey = miRes.accesKey;
-                        console.log(">" + accesKey);
+                        //console.log(">" + accesKey);
                         timerCuenta = setInterval(cuentaRegresiva, 1000);
                         cuenta = cuentaGeneral;
                         divContador.style.visibility = "visible";
@@ -166,19 +166,19 @@ function enviarCorreo() {
 
 function ValidarCodigo() {
     if (txtCodigo.value == accesKey) {
-        console.log("bien");
+        //console.log("bien");
         modal.mostrar(3);
         cancelarCuenta();
         setTimeout(irMuro, 3000);
     } else {
-        console.log("mal");
+        //console.log("mal");
         modal.mostrar(9);
     }
 }
 
 function resetAccesKey() {
     accesKey = '';
-    console.log('reset..');
+    //console.log('reset..');
     addFormEstudiante();
     opProfesor.classList.remove('opSelected');
     opEstudiante.classList.add('opSelected');

@@ -1,9 +1,12 @@
 var listChecks = {
+    'tam': 0,
     'Semestres': [],
     'Carreras': [],
     'Profesores': [],
     'Materias': []
 };
+
+count = 0;
 
 class Publicacion {
     constructor(profesor, fecha, imagen, titulo, descripcion, tagMateria, tagCarrera, tagSemestre, docList){
@@ -23,6 +26,14 @@ class Publicacion {
 
         this.publicacion = document.createElement('div');
         this.publicacion.classList.add('publicacion')
+
+        if(count%2 == 0){
+            this.publicacion.style.animation = "fadeR .5s";
+        }else{
+            this.publicacion.style.animation = "fadeL .5s";
+        }
+
+        count++;
 
             this.publicacionInner = document.createElement('div');
             this.publicacionInner.classList.add('publicacion-inner')
@@ -300,9 +311,58 @@ class Filtro {
             listChecks[name].push(val);
         }
 
+        listChecks['tam'] = listChecks['Carreras'].length + listChecks['Materias'].length + listChecks['Profesores'].length + listChecks['Semestres'].length;
+
+        if(listChecks['tam'] >= 1){
+            btnFiltrar.value = "Quitar Filtros";
+            btnFiltrar.classList.add('btn-filtrar-on');
+        }else{
+            btnFiltrar.value = "Filtrar:";
+            btnFiltrar.classList.remove('btn-filtrar-on');
+        }
+
+        this.consultar();
+
+    }
+    consultar(){
+        var data = listChecks;
+        carga.cargar();
+        fetch('php/consultas.php', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(function (res) {
+                return res.json();
+            })
+            .then(function (miRes) {
+                carga.cargar();
+                timeline.innerHTML = "";
+
+                if(miRes == 0){
+                    timeline.innerHTML = `
+                        <br>
+                        <center>
+                        <h1 class="open">No encontramos publicaciones con los filtros solicitados</h1>
+                        </center>
+                    `
+                }else{
+                    sqlStartTimeLine(miRes[0], miRes);
+                }
+                
+        });
     }
 
     getElement(){
         return this.filtro;
+    }
+}
+
+class Carga {
+    constructor(){
+        this.carga = document.getElementById('carga');
+    }
+    cargar(){
+        this.carga.classList.toggle('modal-inner-on');
     }
 }
