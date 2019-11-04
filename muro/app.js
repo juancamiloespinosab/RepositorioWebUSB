@@ -4,6 +4,7 @@ var buscarBox = document.getElementById('txtBuscar');
 var lupa = document.getElementById('lupa');
 var carga = new Carga();
 var listFiltros = [];
+var inSearch = false;
 
 window.addEventListener("load", startTimeline);
 window.addEventListener("load", startFiltros);
@@ -11,9 +12,16 @@ buscarBox.addEventListener('keyup', sqlSearch);
 lupa.addEventListener('click', sqlSearch);
 
 function sqlSearch(e) {
+    if (e.keyCode == 8 && buscarBox.value == "" && inSearch) {
+        timeline.innerHTML = "";
+        startTimeline();
+        inSearch = false;
+    }
+
     if (e.keyCode == 13 || e.target == lupa) {
         var data = { palabra: buscarBox.value };
         carga.cargar();
+        inSearch = true;
 
         fetch('php/buscar.php', {
             method: 'POST',
