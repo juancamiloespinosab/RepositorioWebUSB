@@ -8,18 +8,20 @@ var inSearch = false;
 
 window.addEventListener("load", startTimeline);
 window.addEventListener("load", startFiltros);
-buscarBox.addEventListener('keyup', sqlSearch);
+buscarBox.addEventListener('keydown', sqlSearch);
 lupa.addEventListener('click', sqlSearch);
 
 function sqlSearch(e) {
+    
     if (e.keyCode == 8 && buscarBox.value == "" && inSearch) {
+
         timeline.innerHTML = "";
         quitarFiltros(lupa);
         startTimeline();
         inSearch = false;
     }
 
-    if (e.keyCode == 13 || e.target == lupa) {
+    if ((e.keyCode == 13 || e.target == lupa) && buscarBox.value != "") {
         var data = { palabra: buscarBox.value };
         carga.cargar();
         inSearch = true;
@@ -33,10 +35,10 @@ function sqlSearch(e) {
                 return res.json();
             })
             .then(function (miRes) {
-                console.log(miRes)
                 carga.cargar();
                 timeline.innerHTML = "";
                 if (miRes == 0) {
+                    quitarFiltros(lupa);
                     timeline.innerHTML = `
                         <br>
                         <center>
@@ -147,8 +149,8 @@ function quitarFiltros(e) {
     btnFiltrar.classList.remove('btn-filtrar-on');
     timeline.innerHTML = "";
     count = 0;
-    
-    if(e.target == btnFiltrar){
+
+    if (e.target == btnFiltrar) {
         startTimeline();
     }
 }
