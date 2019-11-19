@@ -1,0 +1,66 @@
+{
+    "inicio": {
+        "fondo": "home-bg.png"
+
+    },
+
+    "acerca": {
+        "fondo": "white"
+
+
+    },
+
+    "productos": {
+        "fondo": "products-bg.png",
+        "lista": [
+            {
+                "header": "Producto 0",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 1",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 2",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 3",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 4",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 5",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 6",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 7",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 8",
+                "body": "product.png"
+            },
+            {
+                "header": "Producto 9",
+                "body": "product.png"
+            }
+        ]
+
+    },
+
+    "contacto": {
+        "fondo": "contact-bg.jpg"
+
+        
+    }
+
+}
